@@ -1,0 +1,12 @@
+<div class="create-new-control block tl add-kit-device">
+    <h3>Connect a device</h3>
+    <p>After creation, the device will appear in this ground.</p>
+    <new-device on-device-add="vm.createKitDevice(name, type)" device-type="vm.deviceType" show-custom="!vm.isOnGround"></new-device>
+    <div class="alert-msg" ng-show="vm.deviceType !== 'custom' && vm.isOnGround">
+        <h3 class="ui-el-caption">These assets will be created</h3>
+        <ul>
+            <li>Rotary knob sensor</li>
+            <li>LED actuator</li>
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,11 @@
+<load ng-click="vm.loadMore()" class="load" ng-show="!vm.isLoading" ng-hide="vm.thereIsNoMoreItems">
+    <ld ng-if="!vm.hasError">Load more... </ld>
+    <ld ng-if="vm.hasError">Loading failed, click to restart loading... </ld>
+</load>
+<loader-wrapper class="small" ng-show="vm.isLoading">
+    <loader>
+        <ld/>
+        <ld/>
+        <ld/>
+    </loader>
+</loader-wrapper>

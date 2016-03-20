@@ -1,0 +1,206 @@
+.add-control{
+  z-index: 20;
+}
+
+.solo-add-control {
+  float: right;
+  position: relative;
+  margin-left: 20px;
+  z-index: 10;
+}
+.add-control-trigger {
+   .basicTransition;
+   .circle-button;
+    position: relative;
+    text-align: center;
+    background-color: @main;
+    color: @white !important;
+    cursor: pointer;
+    z-index: 1;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.2), 0 5px 5px rgba(0, 0, 0, 0.1), 0 10px 10px rgba(0, 0, 0, 0.1);
+    width: 50.5px;
+    height: 50.5px;
+    line-height: 50.5px;
+
+    &:hover {
+      background-color: darken(@main, 5);
+    }
+
+    &:before {
+      .basicTransition;
+      content: "\e145";
+      font-family: 'smartliving';
+      position: absolute;
+      font-size: 25px;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      padding: 0;
+    }
+  }
+.add-control-trigger.active {
+    background-color: @white;
+    color: @text-color !important;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.1), 0 2px 2px rgba(0, 0, 0, 0.06), 0 5px 5px rgba(0, 0, 0, 0.04);
+
+    &:hover {
+      background-color: darken(@white, 5);
+    }
+
+    &:before {
+      transform: rotate(-135deg);
+      -webkit-transform: rotate(-135deg);
+    }
+  }
+.add-control-container {
+    .basicTransition;
+    padding: 40px;
+    position: absolute;
+    width: auto;
+    box-sizing: content-box;
+    opacity: 0;
+    visibility: hidden;
+    background: @light-light-gray;
+    border-radius: 2px;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.1), 0px 0px 30px rgba(0, 0, 0, 0.06), 0px 20px 20px rgba(0, 0, 0, 0.06);
+    color: @text-color;
+
+    h1{
+      font-size: 1.4em;
+      margin-top: 0;
+    }
+
+    &::-webkit-scrollbar {display: none;}
+    &::-moz-scrollbar {display: none;}
+    &::scrollbar {display: none;}
+
+    article { min-width: 550px; text-align: center}
+
+    &.top-right {
+      right: 50%;
+      top: 50%;
+      .translate(-20%,0)
+    }
+    &.middle-right {
+      right: 50%;
+      top: -50%;
+      .translate(-20%,0)
+    }
+
+    &.bottom-middle {
+      left: 50%;
+      bottom: 50%;
+      .translate(-50%,-20%);
+    }
+  }
+
+/*animate add control*/
+
+.add-control-container.active {
+    .stateTransition;
+    opacity: 1;
+    visibility: visible;
+
+    &.middle-right,
+    &.top-right
+    {
+      .translate(0,0)
+    }
+
+    &.bottom-middle {
+      .translate(-50%,0);
+    }
+}
+
+/*****sticky dialog in environment menu*****/
+
+.sticky-dialog {
+  position: fixed;
+  display: none;
+  left: 0;
+  bottom: -74%;
+  white-space: normal;
+  z-index: 1;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.1), 0 0 20px rgba(0, 0, 0, 0.1);
+}
+.sticky-dialog-close {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  width: 22px;
+  height: 22px;
+  line-height: 22px;
+  font-size: 22px;
+  text-align: center;
+}
+
+.sticky-dialog.active{
+  display: block;
+}
+
+
+/*****enrol gateway****/
+.enrolment-control {
+
+}
+.add-control-step {
+  img {
+    display: block;
+    margin: auto;
+    max-width: 100%;
+  }
+
+  .enrol-timer {
+    display: block;
+    margin: 20px auto;
+    width: 130px;
+    height: 130px;
+    position: relative;
+
+    h2 {
+      position: absolute;
+      width: 130px;
+      height: 130px;
+      line-height: 130px;
+      margin: 0;
+      text-align: center;
+      font-size: 35px;
+    }
+  }
+
+  .enrolment-icon {
+    font-size: 79px;
+    display: block;
+    margin: 20px 0;
+    opacity: 0.4;
+  }
+}
+
+
+/****add new device***/
+
+.create-new-control {
+  text-align: center;
+  .button-group, .single-input-control {
+    margin: 20px 0
+  }
+  [class^="col-"] .single-input-control, [class*=" col-"] .single-input-control{
+    margin: 0;
+  }
+}
+.inline {
+  .button-group, .single-input-control {
+    display: inline-block;
+    vertical-align: top
+  }
+  .button { width: auto}
+
+  .button-group {
+    margin-right: 10px;
+  }
+}
+
+
+
+

@@ -1,0 +1,10 @@
+<ui-select theme="selectize" ng-model="numValue" on-select="onValueSelected($item,$model)">
+    <ui-select-match placeholder="Select...">
+    	{{ $select.selected.name}}
+    </ui-select-match>
+    <ui-select-choices repeat="lbl in labels | filter: $select.search">
+        <aside>
+            {{lbl.name}}
+        </aside>
+    </ui-select-choices>
+</ui-select>

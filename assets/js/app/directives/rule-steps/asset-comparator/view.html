@@ -1,0 +1,10 @@
+<ui-select theme="selectize" ng-model="comparatorValue" on-select="comparatorSelected($item,$model)">
+    <ui-select-match placeholder="Select comparation operator...">
+        {{ $select.selected.name }} ( {{ $select.selected.id }} )
+    </ui-select-match>
+    <ui-select-choices repeat="comparator.id as comparator in comparators | filter: $select.search">
+        <aside>
+            {{ comparator.name }} ( {{ comparator.id }} )
+        </aside>
+    </ui-select-choices>
+</ui-select>

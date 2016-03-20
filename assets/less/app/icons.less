@@ -1,0 +1,83 @@
+.icon {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: @left-navbar-width - @icon-padding auto;
+  cursor: pointer;
+}
+
+#header-icon {
+  width: @top-navbar-height;
+  height: @top-navbar-height;
+  position: relative;
+  float: left;
+}
+
+
+/***Icon with user initials***/
+
+.user-letter {
+  font-size: 15px;
+  font-weight: 800;
+  height: 40px;
+  width: 40px;
+  line-height: 40px;
+  text-align: center;
+  border-radius: 100%;
+  background: @light-gray;
+  color: lighten(@text-color, 30);
+  cursor: pointer;
+  vertical-align: middle;
+  display: inline-block;
+  text-transform: uppercase;
+}
+
+
+.user-letter.new {
+  background: @red;
+  color: @white;
+  opacity: 1;
+}
+
+/***notification indicator***/
+
+.notification-indicator {
+  width: 7px;
+  height: 7px;
+  margin: 3px;
+  border-radius: 100%;
+  display: inline-block;
+  background-color: @gray;
+  cursor: help;
+}
+
+.notification-indicator.new {
+  background-color: @main;
+}
+
+.grid-box{
+  .notification-indicator {
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    left: 5px;
+    top: 5px;
+    z-index: 2;
+  }
+}
+
+/***notification subscripton button***/
+
+.subscribe{
+  font-style: normal;
+  &:before{
+    font-family: 'smartliving';
+    content:'\e675';
+  }
+}
+.subscribe.active{
+  color: @white !important;
+  background: @main;
+  &:before{
+    content:'\e678';
+  }
+}

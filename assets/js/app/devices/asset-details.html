@@ -1,0 +1,97 @@
+<state-control modifier-class="active" identifier="device-details" state="vm.isOpen">
+    <section state-control-type="container" class="details-drawer-container">
+        <div state-control-type="close" class="details-drawer-overlay"></div>
+        <section class="details-drawer">
+            <header class="modal-header">
+                <span class="modal-title">Asset details</span>
+                <div class="modal-close sl-navigate_next" state-control-type="close"></div>
+            </header>
+            <!--content-->
+            <div class="details-content">
+                <section class="details-part" permission="device-asset-save">
+                    <inline-edit value="vm.model.newAssetTitle" confirm-action="vm.model.update()" is-enabled="$root.hasPermission('device-asset-save')"></inline-edit>
+                </section>
+
+                <section class="details-part" permission="device-delete">
+                    <ul class="ground-actions">
+                        <li permission="ground-delete({groundId:vm.model.ground.id})" ng-if="vm.model.ground.visibility !== 'personal'">
+                            <a>
+                                <inline-control first-state="inline-control-delete" second-state="inline-control-delete-active" confirm-element-id="inline-control-confirm" confirm-action="vm.deleteAsset()">
+                                    <i class="sl-sl-delete"></i>
+                                    <article class="inline-confirm">
+                                        <div class="inline-control-message">Delete?</div>
+                                        <div class="inline-control-no-button">No</div>
+                                        <div class="inline-control-yes-button" id="inline-control-confirm">Yes</div>
+                                    </article>
+                                    <span>Delete asset?</span>
+                                </inline-control>
+                            </a>
+                        </li>
+                    </ul>
+                </section>
+
+                <section class="details-part">
+                    <table class="credentials-table">
+                        <tr>
+                            <td>Asset id:</td>
+                            <td>{{vm.model.asset.id}}</td>
+                        </tr>
+                        <tr>
+                            <td>Asset name:</td>
+                            <td>{{vm.model.asset.name}}</td>
+                        </tr>
+                        <tr>
+                            <td>{{vm.model.origin}} id:</td>
+                            <td>{{vm.model.asset.deviceId}}</td>
+                        </tr>
+                        <tr>
+                            <td>Client id:</td>
+                            <td>{{vm.client.clientId}}</td>
+                        </tr>
+                        <tr>
+                            <td>Client key:</td>
+                            <td>{{vm.client.clientKey}}</td>
+                        </tr>
+                    </table>
+                </section>
+
+                <section class="details-part" permission="device-asset-control-save">
+                    <p> Select Control </p>
+                    <ui-select theme="selectize" ng-model="vm.model.control" on-select="vm.model.setControl($item)" search-enabled="false" ng-disabled="vm.model.controls.length === 0">
+                        <ui-select-match>
+                            {{$select.selected }}
+                        </ui-select-match>
+                        <ui-select-choices repeat="control in vm.model.controls">
+                            <aside>{{control.title}}
+                                <small>{{control.description}}</small>
+                            </aside>
+                        </ui-select-choices>
+                    </ui-select>
+                </section>
+
+                <section class="details-part">
+                    <sl-tabs classs="asset-tabs">
+                        <sl-tab heading="State" name="state" ng-if="vm.model.asset.is === 'virtual' || vm.model.asset.is === 'config'" order="1">
+                            <ui-codemirror ui-codemirror-opts="vm.model.editorOptions" id="editor" ng-model="vm.model.publishFeedJson" ui-refresh="vm.model.editorRefresh"></ui-codemirror>
+                            <button permission="device-asset-state" class="main-button codemirror-submit" ng-click="vm.model.publishFeed()"><i class="sl-sl-ok-bold"></i></button>
+                        </sl-tab>
+                        <sl-tab heading="Profile" name="profile" order="2">
+                            <ui-codemirror ui-codemirror-opts="vm.model.editorOptions" id="editor" ng-model="vm.model.profileJson" ui-refresh="vm.model.editorRefresh"></ui-codemirror>
+                            <button permission="device-asset-profile-save" class="main-button codemirror-submit" ng-click="vm.model.replaceProfile()">Set</button>
+                        </sl-tab>
+                        <sl-tab heading="Command" name="command" order="3" ng-if="vm.model.asset.is === 'actuator'">
+                            <ui-codemirror ui-codemirror-opts="vm.model.editorOptions" id="editor" ng-model="vm.model.publishCommandJson" ui-refresh="vm.model.editorRefresh"></ui-codemirror>
+                            <button permission="device-asset-command" class="main-button codemirror-submit" ng-click="vm.model.publishCommand()"><i class="sl-sl-ok-bold"></i></button>
+                        </sl-tab>
+                        <sl-tab heading="Control" name="control" order="4">
+                            <ui-codemirror ui-codemirror-opts="vm.model.editorOptions" id="editor" ng-model="vm.model.controlJson" ui-refresh="vm.model.editorRefresh"></ui-codemirror>
+                            <button permission="device-asset-control-save" class="main-button codemirror-submit" ng-click="vm.model.replaceControl()">Set</button>
+                        </sl-tab>
+                    </sl-tabs>
+                    <small>*Enter any JSON valid value. More info on <a href="http://www.json.org/" target="_blank">JSON.org</a></small>
+                </section>
+            </div>
+            <!--content-->
+        </section>
+    </section>
+</state-control>

@@ -1,0 +1,29 @@
+    <div ng-repeat="category in categories">
+        <h1 ng-if="isSectionVisible(category)" class="list-label"> <span>{{prepareNameForView(category.name)}}</span></h1>
+        <div angular-ripple class="grid-box asset-box no-icon-mobile" test-id="goToAssetPage" ng-repeat="asset in category.assets | filter: {style: category.name} | orderBy:'createdOn':true track by asset.id" ng-class="{new: asset.$isNew == true, deleted:asset._deleted}">
+            <div class="grid-box-full-action" ng-click="goToAsset(asset.id)"></div>
+            <div class="grid-box-icon-container" ng-class="getAssetIcon(asset.is)" ng-if="!asset._deleted" ng-click="goToAsset(asset.id)"></div>
+            <div class="grid-box-icon-container sl-sl-alert-danger" ng-if="asset._deleted"></div>
+            <div class="grid-box-text">
+                <h1 ng-click="goToAsset(asset.id)">{{ asset.title }}
+                <span ng-if="!asset._deleted" ng-class="'tag-' + asset.is"> {{asset.is}}</span>
+                <span class='tag-light-gray' ng-if="!asset._deleted">{{asset.profile.type}}</span>
+
+                <span ng-if="asset._deleted"> has been deleted</span>
+            </h1>
+            </div>
+            <div class="grid-box-actions" ng-if="!asset._deleted">
+                <span class="grid-box-state">
+                <span class="state-value" ng-if="asset.profile.labels == null">{{shortenString(asset.state.value)}}</span>
+                <span class="state-value" ng-if="asset.profile.labels[asset.state.value].name != null">{{asset.profile.labels[asset.state.value].name}}</span>
+                <span class="state-value" ng-if="asset.profile.labels[asset.state.value] && asset.profile.labels[asset.state.value].name == null">{{asset.profile.labels[asset.state.value].value}}</span>
+                <span class="state-time" from-now="asset.state.at" title="{{asset.state.at}}"></span>
+                </span>
+            </div>
+            <div class="grid-box-actions" ng-if="asset._deleted">
+                <a class="grid-box-btn sl-sl-close" ng-click="removeAsset(asset.id)"></a>
+            </div>
+        </div>
+    </div>
+    <ng-include src="'/assets/js/app/partials/add-new/new-asset/view.html'" permission="devices-add" ng-if="model.device.type !== 'quick-demo'" onload="model = model"></ng-include>
+

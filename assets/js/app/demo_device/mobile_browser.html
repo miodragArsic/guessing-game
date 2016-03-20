@@ -1,0 +1,62 @@
+<state-control modifier-class="active">
+    <section class="demo-mobile-browser" ng-controller="MobileBrowserDeviceController as vm">
+        <!--Connecting screen-->
+        <div class="demo-mobile-connecting" ng-show="vm.status === 'connecting'">
+            <div class="center">
+                <img src="assets/img/spinner_white.gif" alt="" />
+                <p>Connecting...</p>
+            </div>
+        </div>
+        <!-- <div class="demo-mobile-start" ng-show="vm.status === 'ready'">
+            <div class="center">
+                <a href="#" ng-click="vm.play()" class="big-play">
+                    <i class="sl-sl-line-play"></i>
+                    <h2>Start playing game</h2>
+                </a>
+            </div>
+        </div> -->
+        <div ng-show="vm.status === 'disconnect'" class="page-white info-screen">
+            <i class="sl-sl-alert-info"></i>
+            <h1>This device has been disconnected</h1>
+            <p>To connect it again, please scan QR code from your desktop screen</p>
+        </div>
+        <!--Game screen-->
+        <div ng-show="vm.status === 'playing'">
+            <!--log trigger-->
+            <span state-control-type="trigger" class="log-toggle"></span>
+            <div state-control-type="container" class="demo-mobile-container">
+                <!--main screen-->
+                <div class="demo-mobile-game">
+                    <div class="center">
+                        <div class="waiting">
+                            <img src="assets/img/demo/sl_logo_white.png" alt="" />
+                            <h1>Sending data</h1>
+                            <span><i></i><i></i><i></i><i></i></span>
+                        </div>
+                    </div>
+                    <a href="#" ng-click="vm.restart()" class="restart-mobile"><i class="sl-sl-arrow-restart"></i></a>
+                </div>
+                <!--device activity log-->
+                <div class="demo-mobile-log">
+                    <h2>Device activity log</h2>
+                    <p ng-repeat="log in vm.logs.slice().reverse()" class="log-line">
+                        <span>[{{log.time}}]</span>
+                        <b>your device is {{log.message}}</b>
+                        <small>{{log.data}}</small>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div ng-show="vm.status === 'error'" class="page-white info-screen">
+            <i class="sl-sl-alert-danger"></i>
+            <!--<h1>{{vm.errorMessage}}</h1>-->
+            <h1>Ooooops something's not right. Try again by reloading.</h1>
+            <a href="#" class="main-button linear-white" ng-click="vm.reload()">Reload</a>
+        </div>
+        <div ng-show="vm.status === 'notmobile'" class="page-white info-screen">
+            <i class="sl-sl-alert-danger"></i>
+            <!-- <h1>Hey, you must open this url in browser of a mobile device to play the game.</h1> -->
+            <small>{{vm.deviceInfo}}</small>
+        </div>
+    </section>
+</state-control>

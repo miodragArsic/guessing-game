@@ -1,0 +1,60 @@
+.inline-banner {
+  .box-style;
+  .clearfix;
+  position: relative;
+  overflow: hidden;
+
+  .inline-col-02{
+    position: relative;
+    vertical-align: middle;
+  }
+
+  .inline-banner-bg{
+    position: absolute;
+    width: 1000px;
+    height: 1000px;
+    right: @content-padding;
+    top: -200px;
+    z-index: 0;
+    border-radius: 100%;
+  }
+
+  .inline-banner-content{
+    padding: @content-padding*2 @content-padding;
+    text-align: left;
+  }
+
+  .inline-banner-image{
+    max-width: 100%;
+    height: 350px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .main-button{
+    margin:@content-padding/1.5 5px 0 0;
+  }
+
+  i{
+    display: block;
+    line-height: 70px;
+    font-size: 70px;
+    opacity: 0.5;
+    margin-bottom: 10px;
+  }
+  h1, h2,h3,h4,h5,h6{
+    margin: 0;
+  }
+  h1{
+    font-weight: 300;
+    font-size: 30pt;
+  }
+  p{
+    margin: 0.3em 0;
+  }
+
+  [state-control-type="trigger"].add-box-active{
+    color: transparent !important;
+    background-color: darken(@light-gray,5);
+  }
+}

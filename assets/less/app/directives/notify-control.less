@@ -1,0 +1,160 @@
+notify-control {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+
+  .notify-control-container {
+    opacity: 0;
+    .translate(0, 100%);
+    visibility: hidden;
+    height: 0;
+    .basicTransition;
+
+    &.alert-shown {
+      opacity: 1;
+      .translate(0, 0);
+      visibility: visible;
+      height: auto;
+    }
+
+    .alert{
+      max-width: 1200px;
+      box-shadow: 0 0 2px rgba(0,0,0,0.06), 0 0 6px rgba(0,0,0,0.08), 0 0 13px rgba(0,0,0,0.1);
+    }
+  }
+
+}
+
+/*****************************/
+
+.notify-control-container {
+  .alert {
+    .box-style;
+    margin: auto;
+    display: block;
+    position: relative;
+    background:@top-bar-bg;
+    color: @white;
+    padding: 0;
+    padding-right: @top-navbar-height - 10px;
+    min-height: @top-navbar-height - 10px;
+    p {
+      margin: 0;
+      padding-left: 20px;
+      display: block;
+      vertical-align: middle;
+      line-height: @top-navbar-height - 10px;
+      .text-overflow;
+      b {
+        font-weight: 900;
+        font-size: 125%;
+        margin-right: 10px;
+      }
+    }
+    &.alert-danger{ background: @red}
+    &.alert-info{ background: @main}
+    &.alert-warning{ background: @yellow}
+    &.alert-success { background: @green}
+    &.alert-offer { background: @ground-aqua}
+    &.alert-start { background: @intro}
+  }
+
+  .main-button {
+    background: rgba(255,255,255,0.8) !important;
+    margin: 0 10px;
+    padding: 10px 20px;
+    font-size: 14px;
+    color: @text-color !important;
+  }
+  .main-button:hover {
+    background: rgba(255,255,255,1) !important;
+  }
+
+  .link {
+    color: @white;
+  }
+
+  .notify-close {
+    color: @white;
+  }
+}
+
+.notify-control-container.inline-notifier{
+  margin-bottom: @grid-box-spacing;
+}
+
+[tooltip-class="notify-close-tooltip"] {
+  position: absolute;
+  top: 16px;
+  right: 15px;
+  width: 25px;
+  height: 25px;
+  font-size: 12px;
+}
+
+.notify-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 22px;
+  padding: 2px;
+  border-radius: 3px;
+  &:hover {
+    background: rgba(0,0,0,0.1);
+  }
+}
+
+
+
+.content-alert {
+  width: 100%;
+  .basicTransition;
+  color: @white;
+  position: relative;
+  border-radius: 3px;
+  margin: 10px 0;
+  padding: 20px 20px 20px 70px;
+  overflow: hidden;
+
+      > * {
+        margin: 5px 30px;
+      }
+      &:before {
+        content:'';
+        position: absolute;
+        left: 0;
+        top: 0;
+        background: rgba(0,0,0,0.1);
+        width: @left-navbar-width;
+        height: 100%;
+      }
+
+      &:after {
+        content:'\e644';
+        position: absolute;
+        left: 0;
+        top: 50%;
+        margin-top: -30px;
+        width: @left-navbar-width;
+        height: 30px;
+        font-family: 'smartliving';
+        font-size: 30px;
+        padding: 15px;
+        text-align: center;
+      }
+
+      &.danger:after{ content: '\e646'}
+      &.info:after{ content: '\e645'}
+      &.warning:after{ content: '\e646'}
+      &.success:after { content: '\e647'}
+
+      &.danger{ background: @red}
+      &.info{ background: @main}
+      &.warning{ background: @yellow}
+      &.success { background: @green}
+
+      .main-button{ background:  rgba(0,0,0,0.1); color: @white}
+      .main-button:hover{ background:  @white; color: @text-color}
+}

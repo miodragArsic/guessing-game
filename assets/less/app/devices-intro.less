@@ -1,0 +1,203 @@
+@intro-box-height: 420px;
+@intro-box-image-height: 250px;
+
+.intro-on-devices-trigger{
+  position: fixed;
+  z-index: 20;
+  width: @top-navbar-height;
+  height: @top-navbar-height - 10px;
+  line-height: @top-navbar-height;
+  font-size: 19pt;
+  color: @white !important;
+  text-align: center;
+  left: 0;
+  bottom: 0;
+
+  i {
+    border-radius: 100%;
+    background: @ground-green;
+    display: block;
+    width: @top-navbar-height/1.7;
+    height: @top-navbar-height/1.7;
+    line-height: @top-navbar-height/1.7;
+    margin: auto;
+    animation: glow 1.4s linear;
+    -webkit-animation: glow 1.4s linear;
+    font-size: 21px;
+
+  }
+  tooltip tip {
+    min-width: 150px;
+  }
+}
+
+.devices-intro{
+  position: relative;
+  .box-style;
+  padding: @content-padding;
+  padding-bottom: @content-padding/2;
+  margin-bottom: @grid-box-spacing;
+}
+
+.intro-box{
+  text-align: center;
+  position: relative;
+  background: @white;
+  border-radius: 3px;
+  overflow: hidden;
+  background-color: @light-box;
+  min-height: @intro-box-height;
+  color: @white;
+
+  .main-button{
+    margin-top: 16px;
+  }
+  img{
+    max-width: 100%;
+    min-width: 100%;
+    border-radius: 3px;
+  }
+
+  article{
+    width: 100%;
+    padding: 30px @content-padding 0 @content-padding;
+    text-align: center;
+    margin: auto;
+    max-width: 450px;
+  }
+  ol{
+    text-align: left;
+    display: inline-block;
+  }
+
+  .intro-box-icon{
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    margin: auto;
+    margin-bottom: @content-padding;
+    i{
+      display: block;
+      line-height: 0.9em;
+      font-size: 10vmin;
+      opacity: 0.5;
+    }
+  }
+
+  i.tick{
+    width: @grid-box-btn-size/1.2;
+    height: @grid-box-btn-size/1.2;
+    line-height: @grid-box-btn-size/1.2;
+    font-size: 14px;
+    margin: 0 5px;
+    background: @ground-green;
+    color: @white;
+    border-radius: 100%;
+    display: inline-block;
+    vertical-align: bottom;
+  }
+
+  h1, h2,h3,h4,h5,h6{
+    margin: 0;
+    text-align: center;
+    span{
+      position: relative;
+    }
+  }
+  h1,h2{
+    font-weight: 800;
+  }
+  h3{
+    margin-bottom: @grid-box-spacing;
+    font-size: 26px;
+    font-weight: 300;
+  }
+  p{
+    margin: 0.3em 0;
+  }
+  &.add-box-active{
+    background: darken(@light-gray,5);
+    box-shadow: none;
+    border-color: transparent !important;
+
+    *{
+      opacity: 0;
+    }
+  }
+
+  .intro-button{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+  }
+}
+.devices-intro .add-box .intro-box{
+  .intro-box-icon{
+    color: rgba(0,0,0,0.4);
+  }
+  .link{ color: @white}
+}
+.devices-intro .add-box:nth-child(1) .intro-box{
+  background: @ground-aqua;
+}
+.devices-intro .add-box:nth-child(2) .intro-box{
+  background: @ground-green;
+}
+.devices-intro .add-box:nth-child(3) .intro-box{
+  background: @ground-yellow;
+}
+
+.devices-intro-header{
+  .clearfix;
+  h1,h2, h3{
+    margin-top: 0;
+    font-weight: 300;
+    float: left;
+  }
+  .main-button{
+    float: right;
+  }
+}
+
+/*----------------------  when completed  -------------------*/
+
+.devices-intro .add-box .intro-box.completed{
+  background: @light-box;
+  color: @text-color;
+  .intro-box-icon{
+    color: rgba(0,0,0,0.2);
+    i{ opacity: 1;
+    }
+  }
+  .link{
+    color: @ground-green;
+    margin: 15px 0;
+    display: inline-block;
+  }
+  article{
+    text-align: center;
+    .absolute-center;
+  }
+}
+
+/******intro trigger animation*/
+
+.glow-animation{
+  0%{ box-shadow: 0 0 0 transparent; .scale(0)}
+  20%{.scale(1.2)}
+  50%{.scale(1)}
+  50%,60%{ box-shadow: 0 0 30px @green;}
+  100%{box-shadow: 0 0 0 transparent;}
+}
+
+@-webkit-keyframes glow {
+  .glow-animation;
+}
+
+@keyframes glow {
+  .glow-animation;
+}
+@-moz-keyframes glow {
+  .glow-animation;
+}

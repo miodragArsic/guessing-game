@@ -1,0 +1,26 @@
+<section class="global-container" full-height>
+    <div class="grid-col-container" >
+        <div class="grid-col">
+            <list-header view-model="vm.model.headerModel">
+            </list-header>
+
+            <div class="col-holder">
+                <ng-include permission="devices-add" src="'/assets/js/app/branding/%BRAND_NAME%/add-new-device.html'"></ng-include>
+                <section class="col-02 box-wrap relative" ng-repeat="device in vm.model.devices | orderBy: 'createdOn' :true track by device.itemId">
+                    <list-item view-model="device">
+                        <a ng-if="device.itemIsDeleted" class="grid-box-btn sl-sl-close" ng-click="vm.model.removeDevice(device)"></a>
+
+                        <inline-control ng-if="!device.itemIsDeleted" permission="device-save" first-state="inline-control-delete secondary-action" second-state="inline-control-delete-active" confirm-element-id="inline-control-confirm" confirm-action="vm.openDeleteDeviceModal(device)" tabindex="0">
+                            <i class="sl-sl-delete grid-box-btn"></i>
+                            <article class="inline-confirm">
+                                <a href="" class="inline-control-no-button">No</a>
+                                <a href="" class="inline-control-yes-button" id="inline-control-confirm">Yes</a>
+                                <div class="inline-control-message">Delete device?</div>
+                            </article>
+                        </inline-control>
+                    </list-item>
+                </section>
+            </div>
+        </div>
+    </div>
+</section>

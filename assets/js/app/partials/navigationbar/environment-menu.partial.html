@@ -1,0 +1,44 @@
+<state-control modifier-class="active" identifier="main-menu">
+    <div state-control-type="trigger" class="main-menu-trigger">
+        <div state-control-type="close" class="main-menu-overlay" tabindex="-1"></div>
+    </div>
+    <div state-control-type="container" class="main-menu-container">
+        <div id="sl-logo" ng-controller="EnvironmentMenuController as vm">
+            <state-control modifier-class="active" identifier="header-list-teams" class="environment-menu-state-control" on-toggle="vm.model.context.reload()">
+                <div class="main-logo" tabindex="0">
+                    <!--environment menu trigger-->
+
+                    <div class="env-trigger">
+                        <a ng-if="vm.model.context.currentId" id="sl-icon" angular-ripple ui-sref="main.ground({id: vm.model.context.currentId})" title="go to ground page"><span class="letter">{{vm.model.context.current.title |limitTo: 2 | capitalize}}</span></a>
+                        <a ng-if="!vm.model.context.currentId" id="sl-icon" angular-ripple ui-sref="main.environment" title="go to environment page"><img src="{{$root.brand.logoIcon}}" alt="{{$root.brand.logoAlt}}" /></a>
+
+                        <!--element to show when ground context is TRUE-->
+                        <aside state-control-type="trigger" title="Open environment menu" ng-if="vm.model.context.current" class="ground-label"><small>ground</small><span><b>{{vm.model.context.current.title}}</b></span></aside>
+                        <!--element to show when ground context is FALSE-->
+                        <aside state-control-type="trigger" title="Open environment menu" ng-if="!vm.model.context.current" class="logo-typo"><img src="{{$root.brand.logoType}}" alt=""/></aside>
+
+                    </div>
+                    <!--environment menu container-->
+                    <div class="environment-menu" state-control-type="container">
+                        <ul class="ground-list">
+                            <li angular-ripple ng-class="ground.color" ng-repeat="ground in vm.model.context.grounds track by ground.id">
+                             <span class="ground-color-indicator"></span>
+                            <subscribed-indicator item-id="ground.id"></subscribed-indicator>
+                            <a ui-sref="main.ground({id: ground.id})" tabindex="0">
+                                <span>{{ground.title}}</span>
+                                <i ng-if="ground.ownerId === $root.getCurrentUserDetails().id" class="sl-face tag-icon" title="You are owner of this ground"></i>
+                            </a>
+                            </li>
+                        </ul>
+                        <ul class="option-list">
+                            <li angular-ripple><a ui-sref="main.environment" tabindex="0"><span>See all grounds</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </state-control>
+        </div>
+        <div class="ground-nav-mobile" ng-if="vm.inGround">
+            <ng-include src="'/assets/js/app/partials/navigationbar/ground-nav.partial.html'"></ng-include>
+        </div>
+    </div>
+</state-control>

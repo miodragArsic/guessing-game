@@ -1,0 +1,42 @@
+<div class="user-action notifications">
+    <state-control modifier-class="active" identifier="notification-menu">
+        <div state-control-type="trigger" class="user-area" tabindex="0">
+            <div class="user-id">
+                <div ng-controller="NavigationController as vm" angular-ripple>
+                    <div ng-controller="NotificationController as vm" class="user-letter sl-bell-fill" ng-class="{ new:vm.context.getUnreadCount() > 0 }">
+                    </div>
+                </div>
+            </div>
+            <div state-control-type="close" class="overlay"></div>
+        </div>
+        <div state-control-type="container">
+            <div class="scroll-content">
+                <!--Notifications area-->
+                <section ng-controller="NotificationController as vm">
+                    <h3 class="top-bar-dropown-caption">Notifications</h3>
+                    <div class="no-notifications" ng-if="vm.context.notifications.length < 1">
+                        <i class="sl-bell-outline"></i>
+                        <h3>No notifications, have fun!</h3>
+                    </div>
+                    <div ng-if="vm.context.notifications.length > 0">
+                        <div class="activity-list">
+                            <article class="activity-box" ng-class="{ new: !notification.value.isRead }" ng-repeat="notification in vm.context.notifications | orderBy:'-at' | limitTo:vm.notificationLimit track by $index">
+                                <span class="notification-indicator" title="Mark as read" ng-click="vm.markAsRead(notification)"></span>
+                                <div class="message" ng-click="vm.viewNotification(notification)">
+                                    <span class="tag tag-gray" ng-class="{ 'tag-blue': !notification.value.isRead }" ng-if="notification.value.event === 'DeviceAssetNewState'">device</span>
+                                    <span class="tag tag-gray" ng-class="{ 'tag-green': !notification.value.isRead }" ng-if="notification.value.event === 'RuleEngineExecutionNotification'">rule</span>
+                                    <ng-include src="notification.template"></ng-include>
+                                    <small from-now="notification.at"></small>
+                                </div>
+                            </article>
+                        </div>
+                        <ul class="bg-light">
+                            <li angular-ripple><a ng-click="vm.markAllAsRead()">Mark all notifications as read</a></li>
+                            <li angular-ripple><a ng-click="vm.showAll()" state-control-type="close">See all notifications</a></li>
+                        </ul>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </state-control>
+</div>

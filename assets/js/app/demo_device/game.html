@@ -1,0 +1,86 @@
+<!-- ------------GAME------------- -->
+<div ng-controller="GuessingGameController as vm">
+    <section class="global-container" full-height>
+        <div class="grid-col-container">
+            <!--small screens-->
+            <section class="page-white demo-mobile-screen info-screen">
+                <i class="sl-sl-alert-info"></i>
+                <h1>Hey, you have to play this demo on desktop, we need your mobile device for different purpose :)</h1>
+            </section>
+            <!--game screen-->
+            <section ng-if="vm.status === 'playing'" class="demo-game-screen demo-screen">
+                <!--tutorial stage-->
+                <div class="blueprint-02 demo-screen" ng-if="vm.game.status === 'tutorial'">
+                    <section class="stage-col">
+                        <div class="stage-info">
+                            <div class="demo-nav">
+                                <ul>
+                                    <li ng-repeat="level in vm.game.levels | filter: { hideInNav:false }" ng-class="{ active: level.isComplete || vm.game.isCurrentLevel(level), complete:level.isComplete}">
+                                        <span>{{level.order}}</span>
+                                    </li>
+                                </ul>
+                                <!--<h3>{{vm.game.getCurrentLevel().text}}</h3>-->
+                                <div class="waiting" ng-class="{ active: vm.game.getCurrentLevel().isWaiting}">
+                                    <p>I'm waiting</p>
+                                    <span><i></i><i></i><i></i><i></i></span>
+                                    <p><a href="#" ng-click="vm.game.skip()">skip step</a></p>
+                                </div>
+                            </div>
+                            <span class="stage-tutorial-graphic {{vm.game.key}}"></span>
+                        </div>
+                        <div class="action-bar">
+                            <h2>{{vm.game.caption}}</h2>
+                        </div>
+                    </section>
+                    <section class="stage-col">
+                        <div class="game-graphic {{vm.game.gameScreen}}">
+                            <img src="assets/img/demo/game_phone.png" alt="" />
+                        </div>
+                    </section>
+                    <span class="stage-text"><p>Follow the steps</p></span>
+                    <i ng-click="vm.game.restart()" class="restart sl-sl-arrow-restart"></i>
+                </div>
+                <!--freewilly stage-->
+                <div class="blueprint demo-screen" ng-if="vm.game.status === 'free'">
+                    <section class="stage-col">
+                        <div class="stage-info">
+                            <div class="demo-nav">
+                                <!--<h3>{{vm.game.getCurrentLevel().text}}</h3>-->
+                            </div>
+                            <span class="stage-freewilly-graphic"></span>
+                        </div>
+                        <div class="action-bar">
+                            <h2>{{vm.game.caption}}</h2>
+                            <a ui-sref="main.deviceOpt({id:vm.gameDevice.id, assetCtrl:'asset-controls'})" ng-show="$root.getCurrentUser().isAuth" class="main-button icon-btn linear-white"><i class="sl-sl-devices"></i> Explore device</a>
+                            <a ui-sref="login" ng-show="!$root.getCurrentUser().isAuth" class="main-button icon-btn linear-white"><i class="sl-sl-lock"></i> Sign in</a>
+                        </div>
+                    </section>
+                    <section class="stage-col">
+                        <div class="game-graphic {{vm.game.gameScreen}}">
+                            <img src="assets/img/demo/game_phone.png" alt="" />
+                        </div>
+                    </section>
+                    <span class="stage-text"><p>Guessing game</p></span>
+                    <i ng-click="vm.game.restart()" class="restart sl-sl-arrow-restart"></i>
+                </div>
+                <!--sleep stage-->
+                <div class="blueprint demo-screen" ng-if="vm.game.status === 'suspended'">
+                    <div class="stage-top-bar">
+                        <h2>Hey, did you close your mobile browser or what?</h2>
+                        <img src="assets/img/demo/wake_up.png" alt="" class="wake-up-graphic" />
+                    </div>
+                    <div class="game-graphic sleep">
+                        <img src="assets/img/demo/game_phone_sleep.png" alt="" />
+                    </div>
+                    <i ng-click="vm.game.restart()" class="restart sl-sl-arrow-restart"></i>
+                </div>
+            </section>
+            <section ng-if="vm.status === 'error'" class="page-white info-screen">
+                <i class="sl-sl-alert-danger"></i>
+                <h1>{{vm.errorMessage}}</h1>
+                <h1 ng-if="!vm.errorMessage">Ooooops something's not right, we couldn't connect your mobile to browser. Please try again.</h1>
+                <a href="#" class="main-button linear-white" ng-click="vm.reload()">Try again now</a>
+            </section>
+        </div>
+    </section>
+</div>

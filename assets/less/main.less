@@ -1,0 +1,336 @@
+
+.groundTheme() {
+  @import (less) "app/variables.less";
+  @import (less) "app/navbar.less";
+  @import (less) "app/scrollbars.less";
+  @import (less) "app/notifications.less";
+  @import (less) "app/details-drawer.less";
+  @import (less) "app/icons.less";
+  @import (less) "app/buttons.less";
+  @import (less) "app/accordion.less";
+  @import (less) "app/login-register.less";
+  @import (less) "app/login-intro.less";
+  @import (less) "app/gods-management.less";
+  @import (less) "app/page.less";
+  @import (less) "app/blank-page.less";
+  @import (less) "app/places.less";
+  @import (less) "app/modals.less";
+  @import (less) "app/devices.less";
+  @import (less) "app/device-activity.less";
+  @import (less) "app/teams.less";
+  @import (less) "app/single-input.less";
+  @import (less) "app/grid.less";
+  @import (less) "app/tags.less";
+  @import (less) "app/ground-boxes.less";
+  @import (less) "app/ground-nav.less";
+  @import (less) "app/drag-drop.less";
+  @import (less) "app/pin-board.less";
+  @import (less) "app/loaders.less";
+
+  @import (less) "app/layout.less";
+  @import (less) "app/form-elements.less";
+  @import (less) "app/code-editor.less";
+  @import (less) "app/rules.less";
+  @import (less) "app/add-control.less";
+  @import (less) "app/add-box.less";
+  @import (less) "app/devices-intro.less";
+  @import (less) "app/inline-banner.less";
+  @import (less) "app/error-404.less";
+  @import (less) "app/onboarding-header.less";
+
+  @import (less) "app/directives/google-map.less";
+  @import (less) "app/directives/inline-edit.less";
+  @import (less) "app/directives/inline-delete.less";
+  @import (less) "app/alerts.less";
+  @import (less) "app/directives/notify-control.less";
+  @import (less) "app/directives/tab-control.less";
+  @import (less) "app/directives/angular-tooltip.less";
+  @import (less) "app/ngAnimations.less";
+  @import (less) "app/terms-of-use.less";
+  //controls styles
+
+  @import (less) "app/demo.less";
+
+  *, *:before, *:after {
+    box-sizing: border-box;
+  }
+
+  .clearfix {
+    zoom: 1;
+    &:before, &:after {
+      content: "\0020";
+      display: block;
+      height: 0;
+      overflow: hidden;
+    }
+    &:after {
+      clear: both;
+    }
+  }
+
+  ol {
+    padding: 0;
+    margin: 0 0 0 25px;
+    li {
+      list-style: disc !important;
+      padding: 5px 0 !important;
+    }
+  }
+
+  div#content-holder {
+    margin-left: @left-navbar-width;
+    margin-top: @top-navbar-height;
+    height: 100%;
+  }
+  .page-container header {
+    font-size: @page-header-text-size;
+    margin-bottom: @header-bottom-margin;
+    margin-top: @header-top-margin;
+    text-align: center;
+  }
+
+  a {
+    text-decoration: none !important;
+    color: @main;
+  }
+  a:hover {
+    text-decoration: none !important;
+  }
+  a:active {
+    text-decoration: none !important;
+  }
+  a:visited {
+    text-decoration: none !important;
+  }
+  .content-container {
+    height: 100%;
+  }
+
+  p {
+    margin: 0.5em 0;
+    line-height: 1.5;
+  }
+
+  *[ng-click] {
+    cursor: pointer
+  }
+
+  * {
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+    -moz-tap-highlight-color: rgba(255, 255, 255, 0);
+    tap-highlight-color: rgba(255, 255, 255, 0);
+    .selection-disabled;
+  }
+
+  h1,h2,h3,h4,h5,h6,p,i,span,a,b,small,ol,li{
+    .selection-enabled;
+  }
+  small{
+    opacity: 0.75;
+  }
+
+  ::selection {
+    color: @white;
+    background: @main;
+  }
+  ::-moz-selection {
+    color: @white;
+    background: @main;
+  }
+  ::selection {
+    color: @white;
+    background: @main;
+  }
+  ::-moz-selection {
+    color: @white;
+    background: @main;
+  }
+  ::selection {
+    color: @white;
+    background: @main;
+  }
+  ::-moz-selection {
+    color: @white;
+    background: @main;
+  }
+
+//  *:focus {
+//    outline: rgba(0,0,0,0.1) dashed 1px;
+//  }
+
+  a[state-control-type="trigger"]{
+    display: block;
+  }
+
+  .text-hl {
+    color: @main
+  }
+
+  hr {
+    margin: 20px 0;
+    width: 100%;
+    height: 2px;
+    background: @light-gray;
+    border: none
+  }
+
+  /*****general styling and positioning classes****/
+
+  .content-padding {
+    padding: 30px
+  }
+
+  .spacing-y{
+    margin: @content-padding/1.5 auto;
+    display: inline-block;
+    width: 100%;
+  }
+
+  .spacing-x{
+    margin: 0 @content-padding/3;
+  }
+
+  .relative {
+    position: relative;
+    .clearfix;
+  }
+
+  .flex-text-wrap {
+    position: relative;
+   *zoom: 1;
+  }
+
+  .tl {
+    text-align: left;
+  }
+  .tr{
+    text-align: right;
+  }
+  .separator {
+    height: 1px;
+    background: rgba(0,0,0,0.1);
+    display: block;
+    position: relative;
+  }
+  .link{
+    &:hover, &.underline{ text-decoration: underline !important;}
+  }
+  .bg-white{
+    background-color: @white;
+  }
+  .bg-light{
+    background-color: @light-box;
+  }
+  .bg-ground{
+    background-color: @main;
+  }
+
+  /******responsive layouts*****/
+  @import (less) "app/responsive.less";
+
+}
+
+
+
+.defaultColors(){
+  @att-orange: #ff855a;
+  @att-yellow: #f4c45b;
+  @att-grass: #a8c14d;
+  @att-green: #43c399;
+  @att-aqua: #25c2d5;
+  @att-blue: #2670e0;
+  @att-gray: #56646d;
+  @att-violet: #9068c8;
+  @att-pink: #ed4d73;
+  @att-red: #f16557;
+
+
+  @blue: #1a6deb;
+  @red: #ff6458;
+  @text-color: #55636c;
+  @white: #fff;
+  @light-gray: #e6e9ed;
+  @light-light-gray:#F8F9FA;
+  @light-box:#f6f6f6;
+  @lightest-box:#F9F9F9;
+  @menu-background: #f6f6f6;
+  @dark-gray: #2f2f2f;
+  @gray: #e2e2e2;
+  @black: #000;
+  @yellow: #eeb916;
+  @orange: #ff855a;
+  @device-drawer-background: #34393D;
+  @transparent-black: rgba(0,0,0,0.1);
+  @green: #20d298;
+  @lighter-text: #5B6669;
+  @top-bar-bg: #3A4348;
+  @intro: #7dcdc6;
+
+  @empty-black: rgba(0,0,0,0);
+  @fill-black: rgba(0,0,0,1);
+  @empty-white: rgba(255,255,255,0);
+  @fill-white: rgba(255,255,255,1);
+};
+
+
+[href^="//"][target="_blank"],
+[href^="http://"][target="_blank"],
+[href^="https://"][target="_blank"] {
+  &:after{
+    content:'\e916';
+    font-family: 'smartliving';
+    margin: 0 2px;
+    font-size: 13pt;
+    vertical-align: bottom;
+    font-weight: 400;
+
+  }
+}
+
+.login-logo, .login-intro{
+  [href^="//"][target="_blank"],
+  [href^="http://"][target="_blank"],
+  [href^="https://"][target="_blank"] {
+    &:after{
+      display: none;
+
+    }
+  }
+}
+
+
+
+
+
+/******Ground colors*****/
+
+body {
+  @main: %BRAND_COLOR%;
+  @dark-main: darken(@main, 3);
+  @transparent-main: rgba(38,112,244,0.4);
+  .defaultColors();
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: @light-gray;
+  color: @text-color;
+  font-family: @main-font-family;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: calc(~"100% - " @top-navbar-height);
+  overflow: hidden;
+
+  .groundTheme();
+}
+
+@import (less) "app/ground-colors.less";
+
+
+
+
+
+
+
+
+

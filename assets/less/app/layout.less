@@ -1,0 +1,187 @@
+.global-container {
+  width: 100vw;
+  position: relative;
+  height: 100vh;
+  .grid-col-container {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    min-width: 600px;
+    height: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding-top: @top-navbar-height + @content-padding;
+    padding-right: @content-padding;
+    padding-left: @top-navbar-height;
+    padding-bottom: @content-padding;
+    .grid-col {
+      width: 100%;
+      max-width: 1400px;
+      height: 100%;
+      margin: auto;
+      position: relative;
+      > .deleted {
+        opacity: 0.5;
+        pointer-events: none
+      }
+    }
+  }
+
+  .no-nav-container {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    min-width: 600px;
+    height: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+
+  .grid-col {
+    width: 100%;
+    max-width: 1400px;
+    height: 100%;
+    margin: auto;
+    position: relative;
+    > .deleted {
+      opacity: 0.5;
+      pointer-events: none
+    }
+  }
+}
+
+/****simple columns*****/
+
+.col-holder{
+  margin-left: -@grid-box-spacing/2;
+  width: calc(~"100% +" @grid-box-spacing);
+  .clearfix;
+
+  [class^="col-"], [class*=" col-"]{
+    display: block !important;
+    vertical-align: top;
+    margin-left: @grid-box-spacing/2;
+    margin-right: @grid-box-spacing/2;
+    margin-top: 0;
+    float: left;
+    &:after{
+      clear: left;
+  }
+  }
+
+  [class^="inline-col-"], [class*="inline-col-"]{
+    display: inline-block !important;
+    vertical-align: middle;
+    margin-left: @grid-box-spacing/2;
+    margin-right: @grid-box-spacing/2;
+    margin-top: 0;
+    float: none !important;
+    position: relative;
+  }
+
+  .dndPlaceholder, .col-pin {
+    display: inline-block !important;
+    margin-left: @grid-box-spacing/2;
+    margin-right: @grid-box-spacing/2;
+    margin-top: 0;
+    float: none !important;
+    width: calc(~"25% -" @grid-box-spacing);
+    position: relative;
+
+  }
+}
+
+.table-columns{
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+  border-spacing: 10px;
+
+  [class^="col-"], [class*=" col-"]{
+    display: table-cell !important;
+    float: none;
+  }
+}
+
+.col-02{
+  width: calc(~"50% -" @grid-box-spacing);
+}
+
+.col-03{
+  width: calc(~"33.33% -" @grid-box-spacing);
+}
+
+.col-04{
+  width: calc(~"25% -" @grid-box-spacing);
+}
+
+.inline-col-02{
+  width: calc(~"48.9% -" @grid-box-spacing);
+}
+
+.inline-col-03{
+  width: calc(~"32.33% -" @grid-box-spacing);
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+@media screen and (max-width: 1500px) {
+  .col-holder{
+    .col-pin, .dndPlaceholder{
+      width: calc(~"33.3% -" @grid-box-spacing);
+    }
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .global-container {
+    .grid-col-container {
+      padding-left: @content-padding;
+    }
+
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .col-holder{
+    .col-pin, .dndPlaceholder{
+      width: calc(~"50% -" @grid-box-spacing);
+    }
+  }
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+@media screen and (max-width: 1500px) {
+  .global-container {
+    .grid-col-container {
+      .grid-col {
+        max-width: 1200px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .col-02{
+    width: calc(~"100% -" @grid-box-spacing);
+  }
+
+  .col-03{
+    width: calc(~"50% -" @grid-box-spacing);
+  }
+
+  .col-04{
+    width: calc(~"50% -" @grid-box-spacing);
+  }
+
+  .inline-col-02{
+    width: calc(~"48.9% -" @grid-box-spacing);
+  }
+
+  .inline-col-03{
+    width: calc(~"48.9% -" @grid-box-spacing);
+  }
+}

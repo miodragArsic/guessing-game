@@ -1,0 +1,9 @@
+<div class="notify-control-container" ng-class="{'alert-shown': !isClosed}">
+    <div class="alert" ng-class="{ 'alert-danger': type == 'error', 'alert-info': type=='info', 'alert-success': type == 'success', 'alert-warning': type == 'warning', 'alert-offer': type == 'offer'}" ng-mouseover="onMouseOver()" ng-mouseleave="onMouseLeave()" ng-click="close()">
+        <p>
+            <b test-id="notifyTitle">{{ title }}</b>{{ msg }}
+            <a href="" class="main-button" ng-show="showActionButton" ng-click="actionHandler()">{{actionText}}</a>
+        </p>
+        <div ng-click="close()" class="sl-close notify-close" tooltips tooltip-template="Dismiss" tooltip-side="top" tooltip-class="notify-close-tooltip"></div>
+    </div>
+</div>

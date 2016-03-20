@@ -1,0 +1,19 @@
+<i class="sl-close modal-close" state-control-type="close"></i>
+<section class="modal-scroll modal-padding">
+    <div class="create-new-control">
+        <h3>Create new Asset</h3>
+        <div class="button-group table-group">
+            <a angular-ripple href="" ng-click="model.assetModel.setType(at.type)" ng-class="{ 'button-group-selected': at.type === model.assetModel.type }" ng-repeat="at in model.assetModel.getTypes()" ng-if="model.allowAssetTypeCreation(at.type)">
+                <span>{{at.name}}</span>
+            </a>
+        </div>
+        <div class="single-input-control">
+            <form ng-submit="model.createAsset()">
+                <label>Name</label>
+                <input class="teams-header-input" type="text" ng-model="model.assetModel.name" placeholder="" />
+                <button angular-ripple class="submit" id="submit-name" type="submit" ng-class="{ 'disabled-btn': model.createAssetDisabled || !model.assetModel.isValid()}"><i class="sl-arrow_forward"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+</section>

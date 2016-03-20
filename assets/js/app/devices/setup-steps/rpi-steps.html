@@ -1,0 +1,52 @@
+<section class="details-part">
+    <state-control class="accordion step-accordion" modifier-class="active">
+        <h2 state-control-type="trigger"><span>1.</span> Prepare hardware & software <a class="link" href="http://docs.smartliving.io/kits/linux-raspberry-pi/#installation" target="_blank">Learn more</a></h2>
+        <article state-control-type="container">
+            <ol>
+                <li>Place the Grove shield on top of the RPI</li>
+                <li>Attach Rotary knob to <b>A0</b> pin on the shield</li>
+                <li>Attach LED to <b>D4</b> pin on the shield</li>
+                <li>Set up RPI OS</li>
+            </ol>
+        </article>
+    </state-control>
+</section>
+
+<section class="details-part">
+    <state-control class="accordion step-accordion" modifier-class="active">
+        <h2 state-control-type="trigger"><span>2.</span> Use FTP to install libraries <a class="link" href="http://docs.smartliving.io/kits/linux-raspberry-pi/#build-sd-card" target="_blank">Learn more</a></h2>
+        <article state-control-type="container">
+            <ol>
+                <li>Connect Raspberry Pi to internet using LAN cable</li>
+                <li>Connect to Raspberry Pi using any FTP client.
+                    <p><pre>Host: <b>[your_rpi_ip_address]</b></pre></p>
+                    <p><pre>Protocol: <b>SFTP</b></pre></p>
+                    <p><pre>User: <b>pi</b></pre></p>
+                    <p><pre>Password: <b>raspberry</b></pre></p>
+                </li>
+                <li>Choose and download library</li>
+                <li>Extract zipped library</li>
+                <li>Copy extracted files to Raspberry Pi using FTP client</li>
+
+            </ol>
+        </article>
+    </state-control>
+    <article class="spacing-y">
+        <a class="main-button" href="https://github.com/allthingstalk/raspberrypi-python-client/archive/master.zip">Download</a>
+    </article>
+</section>
+
+<section class="details-part">
+    <state-control class="accordion step-accordion" modifier-class="active">
+        <h2 state-control-type="trigger"><span>3.</span> run First application script</h2>
+        <article state-control-type="container">
+            <p>This is your <b>first_app</b>. Download this script, include it in directory where you installed library and run the script.</p>
+            <p>Your device will be activated as soon as the first data arrives in the cloud.</p>
+            <div class="alert-msg main spacing-y"><small><b>Note:</b> It's important to place First_app.py in same directory with ATT_IOT.py</small></div>
+        </article>
+    </state-control>
+    <article class="spacing-y">
+        <ui-codemirror ui-codemirror-opts="vm.model.editorOptions" ng-model="vm.model.editorModel" ui-refresh="vm.model.editorRefresh"></ui-codemirror>
+        <a class="main-button codemirror-submit" ng-click="vm.model.downloadScript()"href="#">Download the application script</a>
+    </article>
+</section>

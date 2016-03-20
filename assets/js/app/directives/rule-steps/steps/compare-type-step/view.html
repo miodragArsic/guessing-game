@@ -1,0 +1,27 @@
+<h1 ng-show="forCompare == 'true'" class="caption">Select Condition</h1>
+<h1 ng-show="forCompare == 'false'" class="caption">Set to</h1>
+<form>
+    <div class="radio" ng-show="forCompare == 'true'">
+        <label>
+            <input type="radio" name="radio" value="onEveryChange" ng-model="selectedCompareType">
+            <div class="indicator"></div>
+            <span>On every state change</span>
+        </label>
+    </div>
+    <div class="radio">
+        <label>
+            <input type="radio" name="radio" value="constant" ng-model="selectedCompareType" test-id="selectValue">
+            <div class="indicator"></div>
+            <span ng-show="forCompare == 'true'">Compare to some value</span>
+            <span ng-show="forCompare == 'false'">Set to some value</span>
+        </label>
+    </div>
+    <div class="radio">
+        <label>
+            <input type="radio" name="radio" value="reference" ng-model="selectedCompareType">
+            <div class="indicator"></div>
+            <span ng-show="forCompare == 'true'">Compare to other device</span>
+            <span ng-show="forCompare == 'false'">Set to other device value</span>
+        </label>
+    </div>
+</form>

@@ -1,0 +1,13 @@
+<h1>{{sectionTitle}}</h1>
+
+<h2>{{getHeaderText()}}</h2>
+
+<p>{{getDetails()}}</p>
+
+<i ng-show="isReady()" class=" sl-sl-ok-bold ok"></i>
+
+<div class="sub-step-indicator">
+
+	<span ng-if="isSubstepVisible(step.name)" ng-class="{ 'active': isSubstepActive(step.name) }" ng-repeat="step in steps"></span>
+
+</div>

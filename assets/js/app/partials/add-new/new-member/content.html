@@ -1,0 +1,49 @@
+<i class="sl-close modal-close" state-control-type="close"></i>
+<section class="modal-scroll modal-padding">
+    <div class="create-new-control block">
+        <article class="add-control-step">
+            <i class=" sl-sl-user enrolment-icon"></i>
+            <h3>Add new Member</h3>
+            <p>Enter an email of existing user you want to add to this ground.</p>
+            <form name='vm.addMemberForm' ng-submit="vm.addMember()" class="default-form" novalidate>
+                <div class="block">
+                    <div class="single-input-control">
+                        <label>Enter email</label>
+                        <input name="email" type="email" placeholder="e.g. someone@example.com" tabindex="1" ng-model="vm.model.memberEmail" required ng-class="{'form-error-field': ((vm.addMemberForm.email.$error.required || vm.addMemberForm.email.$error.email) && vm.addMemberForm.$submitted) && vm.validator.hideEmailInputError}" />
+                        <button type="submit" angular-ripple ng-class="{ 'disabled-btn': vm.model.memberEmail == null || vm.model.memberEmail == '' }"><i class="sl-arrow_forward"></i></button>
+                    </div>
+                </div>
+                <div class="block form-error-message" ng-if="vm.addMemberForm.$invalid && vm.addMemberForm.$submitted">
+                    <p ng-show="vm.addMemberForm.email.$invalid && vm.addMemberForm.email.$error.required">Field can not be empty</p>
+                    <p ng-show="vm.addMemberForm.email.$invalid && vm.addMemberForm.email.$error.email">E-mail is not in a valid format</p>
+                </div>
+                <div class="block result">
+                    <loader-wrapper ng-show="vm.model.isLoadingUsers" class="small">
+                        <loader>
+                            <ld/>
+                            <ld/>
+                            <ld/>
+                        </loader>
+                    </loader-wrapper>
+                    <loader-wrapper ng-show="vm.model.queriedUsers.length === 0 && vm.addMemberForm.$submitted && !vm.model.isLoadingUsers && vm.addMemberForm.$valid">
+                        <p>No result</p>
+                    </loader-wrapper>
+                    <ul class="result-list">
+                        <li tabindex="1" angular-ripple ng-repeat="user in vm.model.queriedUsers" ng-click="vm.model.selectUser(user)">
+                            <aside class="user-letter">{{ user.name | limitTo : 2 | capitalize }}</aside>
+                            <aside class="txt">
+                                <h3>{{user.name}}</h3>
+                                <p>{{user.email}}</p>
+                            </aside>
+                            <i class="sl-sl-carot-right"></i>
+                        </li>
+                    </ul>
+                </div>
+            </form>
+
+        </article>
+    </div>
+</section>
+
+
+

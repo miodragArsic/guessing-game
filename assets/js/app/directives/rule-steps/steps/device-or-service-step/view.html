@@ -1,0 +1,59 @@
+<h1 class="caption">{{title}}</h1>
+
+<div class="box-radio-holder">
+    <div class="radio box-radio" ng-if="services[0].type == 'dayTime'">
+        <label>
+            <input type="radio" name="radio" value="service" ng-click="onServiceSelected()" test-id="dayTimeSelection">
+            <div class="indicator"></div>
+            <div class="grid-box">
+                <div class="grid-box-icon-container sl-service-calendar" ng-class="">
+                </div>
+                <div class="grid-box-text">
+                    <h1>Day of the week</h1>
+                    <p>Select day and time to trigger the rule</p>
+                </div>
+            </div>
+        </label>
+    </div>
+    <div class="radio box-radio" ng-if="services.length > 0 && services[0].type == 'notify' && showNotify" >
+        <label>
+            <input type="radio" name="radio" value="service" ng-click="onServiceSelected()" test-id="eMailMeSelection">
+            <div class="indicator"></div>
+            <div class="grid-box">
+                <div class="grid-box-icon-container sl-service-email" ng-class="">
+                </div>
+                <div class="grid-box-text">
+                    <h1>Notify me</h1>
+                    <!-- <p>{{services[1].description}}</p> -->
+                    <p>You will be notified by selected notification channels (web, push or e-mail)</p>
+                </div>
+            </div>
+        </label>
+    </div>
+
+    <div class="radio box-radio" ng-if="!hasAvailableDevices()">
+        <div class="grid-box red">
+            <div class="grid-box-icon-container sl-device-custom"></div>
+            <div class="grid-box-text">
+                <h1>No available devices</h1>
+                <p>You have to configure your devices and assets to be able to use them as rule triggers.</p>
+                <a class="main-button light-btn btn-spacing" href="/devices">Configure devices</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="radio box-radio" ng-if="hasAvailableDevices()">
+        <label>
+            <input type="radio" name="radio" value="device" ng-click="onDeviceSelected()">
+            <div class="indicator"></div>
+            <div class="grid-box">
+                <div class="grid-box-icon-container sl-device-custom" ng-class="">
+                </div>
+                <div class="grid-box-text">
+                    <h1>{{deviceBoxTitle}}</h1>
+                    <p>Select existing device {{deviceBoxSubtext}}</p>
+                </div>
+            </div>
+        </label>
+    </div>
+</div>

@@ -1,0 +1,36 @@
+<div class="modal-rule-options" controller="modals.rulesAttached as vm">
+    <div class="modal-header">
+        <h2 class="modal-title">Rules associated to <span>{{vm.deviceModel.title}}</span> device</h2>
+    </div>
+    <div class="modal-scroll">
+        <div class="modal-row">
+            <div class="step-tabs-holder" ng-repeat="rule in vm.deviceRules">
+                <ul class="step-tabs">
+                    <li>
+                        <h3>When</h3>
+                        <p ng-if="rule.stepDefinitions.when.message">{{rule.stepDefinitions.when.message}}</p>
+                        <p ng-if="rule.stepDefinition.when.valid === false">There is no valid rule data.</p>
+
+                    </li>
+                    <li>
+                        <h3>Then</h3>
+                        <p ng-if="rule.stepDefinitions.then.action === 'Notify'"><b>{{rule.stepDefinitions.then.action}}</b>
+                            <span class="tag-light-gray" ng-repeat="user in rule.stepDefinitions.then.users" ng-if="user.id !== vm.currentUser.id">{{user.username}}</span>
+                            <a class="btn tag" angular-ripple title="Notify me too" ng-class="{'tag-gray-outline': rule.isCurrentUserSubscribed == false, 'tag-main': rule.isCurrentUserSubscribed == true}" ng-click="vm.subscribe(rule)"><i class="sl-bell-outline2"></i>Me</a>
+                        </p>
+                        <p ng-if="rule.stepDefinitions.then.action !== 'Notify'"><b>{{rule.stepDefinitions.then.action}}</b> {{rule.stepDefinitions.then.message}}</p>
+                    </li>
+                    <li ng-if="rule.stepDefinitions.else">
+                        <h3>Else</h3>
+                        <p ng-if="rule.stepDefinitions.else.action === 'Notify'"><b>{{rule.stepDefinitions.else.action}}</b>
+                            <span class="tag-light-gray" ng-repeat="user in rule.stepDefinitions.else.users">{{user.username}}</span>
+                            <a class="btn tag" angular-ripple title="Notify me too" ng-class="{'tag-gray-outline': rule.isCurrentUserSubscribed == false, 'tag-main': rule.isCurrentUserSubscribed == true}" ng-click="vm.subscribe(rule)"><i class="sl-bell-outline2"></i>Me</a>
+                        </p>
+                        <p ng-if="rule.stepDefinitions.else.action !== 'Notify'">{{rule.stepDefinitions.else.message}}</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <button-load-more size="vm.quantity" load="vm.loadMore()" ng-if="vm.showLoadMore"></button-load-more>
+    </div>
+</div>

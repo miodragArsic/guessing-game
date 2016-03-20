@@ -1,0 +1,169 @@
+inline-edit {
+  position: relative;
+  display: block;
+}
+.inline-edit-rename-button,
+.inline-edit-indicator{
+  border-radius: 2px;
+  padding: 3px;
+  width: 25px;
+  height: 25px;
+  font-size: 18px;
+  text-align: center;
+  background-color: @white;
+  color: lighten(@text-color, 30);
+  cursor: pointer;
+  position: absolute;
+  top: 13px;
+  left: 0px;
+}
+.inline-edit-rename-button {
+  display: none;
+  color: @ground-green !important;
+}
+
+.inline-edit-indicator {
+  display: block;
+  pointer-events: none;
+}
+
+textarea:focus ~ .inline-edit-indicator {display: none;}
+input:focus ~ .inline-edit-indicator {display: none}
+
+input:focus ~ .inline-edit-rename {display: block; opacity: 1 !important}
+textarea:focus ~ .inline-edit-rename {display: block; opacity: 1 !important}
+
+.inline-edit-rename-button.active {
+  display: block;
+}
+
+.inline-edit-rename-button:hover {
+  background-color: lighten(@gray, 5);
+}
+
+.inline-edit-text {
+  min-width: 10px;
+  border: none;
+  background: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  .basicTransition;
+  font-size: 23px;
+  padding: 0 10px 0 30px;
+  line-height: 1em;
+  font-weight: bold;
+  cursor: text;
+  border-radius: 0;
+  border-bottom: solid 1px transparent;
+
+  &:focus {
+    cursor: text;
+    border-color: @ground-green
+  }
+  &:disabled {
+    cursor: auto;
+    padding-left: 0;
+  }
+}
+
+.inline-edit-text:focus {
+  outline: 0;
+}
+
+//inline edit text area
+
+.inline-edit-textarea{
+  position: relative;
+  margin-bottom: 15px;
+  textarea{
+    background: none;
+    display: block;
+    border: none;
+    cursor: text;
+    min-height: 0px;
+    height: auto;
+    overflow: hidden;
+    resize: none;
+    border-radius: 0;
+
+    &:focus {
+      cursor: text;
+    }
+    &:focus ~ .inline-edit-rename-button {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    &:focus ~ small {
+      opacity: 0.3;
+    }
+  }
+
+  .inline-edit-rename-button {
+    display: block;
+    opacity: 0;
+    visibility: hidden;
+    .basicTransition;
+    transition-delay: 0.1s;
+  }
+
+  small {
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+    .basicTransition;
+    opacity: 0;
+  }
+
+}
+
+/////////////////////////////////////////////////////////
+
+.inline-edit-textarea{
+  textarea,
+  .flex-text-wrap {
+    outline: 0;
+    margin: 0;
+    border: none;
+    padding: 0;
+    *padding-bottom: 0 !important;
+    border-bottom: solid 1px transparent;
+    &:focus{
+      border-color: @ground-green
+    }
+  }
+  .flex-text-wrap textarea,
+  .flex-text-wrap pre {
+    white-space: pre-wrap;
+    width: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+
+    *white-space: pre;
+    *word-wrap: break-word;
+  }
+  .flex-text-wrap textarea {
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    resize: none;
+    *height: 94%;
+    *width: 94%;
+  }
+  .flex-text-wrap pre {
+    display: block;
+    visibility: hidden;
+  }
+  textarea,
+  .flex-text-wrap pre {
+    padding: 15px 10px 15px 30px;
+    margin: 0;
+  }
+
+}
+

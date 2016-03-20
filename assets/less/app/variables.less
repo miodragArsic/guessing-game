@@ -1,0 +1,273 @@
+/* Font definitions */
+@main-font-family: 'Lato', sans-serif;
+
+/* Size definitions */
+@left-navbar-width: 65px;
+@top-navbar-height: 65px;
+@navbars-margin: 43px;
+@content-holder-padding: 50px;
+@sl-logo-text-size: 22px;
+@sl-icon-padding: 40px;
+@icon-padding: 60px;
+@active-icon-link-border-width: 5px;
+@page-header-text-size: 30px;
+@content-padding: 25px;
+@input-height: 55px;
+
+/* Header */
+@header-bottom-margin: 5%;
+@header-top-margin: 5%;
+
+/* Input */
+@input-border-radius: 5px;
+@input-width: 470px;
+@input-height: 50px;
+@input-button-height: 60px;
+
+/* Dark Button */
+@dark-button-width: 160px;
+@dark-button-height: 55px;
+@dark-button-background: @dark-gray;
+@dark-button-color: @white;
+
+/* Page header */
+@page-header-height: 300px;
+@page-header-width: 100%;
+@page-header-background-color: @main;
+@page-header-border-radius: 5px;
+@page-header-icon-margin: 50px;
+@page-header-icon-small-width: 100px;
+
+/* Place container */
+
+@place-container-height: 100px;
+@place-container-border-radius: 5px;
+
+/* Places Map */
+
+@places-map-width: 500px;
+@places-map-height: 500px;
+
+
+/* Page button (Blue button) */
+
+@page-button-border-radius: 3px;
+@page-button-background-color: @main;
+@page-button-color: @white;
+
+/* Grid Box */
+@grid-box-height: 95px;
+@grid-icon-margin: 10px;
+@grid-box-spacing: 16px;
+@grid-box-btn-size: 40px;
+
+
+/* Modals*/
+@backdrop-opacity: 0.6;
+@modal-header-height: 50px;
+@modal-content-padding: 3%;
+
+/*Alert messages*/
+
+@darken-percent: 15;
+@lighten-percent: 45;
+
+@alert-danger: @red;
+@alert-info: @main;
+@alert-warning: @yellow;
+@alert-success: @green;
+@alert-offer: @ground-aqua;
+
+
+@media screen and (max-width: 960px){
+  @top-navbar-height: 50px;
+  @left-navbar-width:50px;
+}
+
+.ui-el-caption{
+  font-size: 13px;
+  font-weight: 800;
+  text-transform: uppercase;
+//  text-align: left;
+}
+
+.external-link{
+    content:'\e916';
+    font-family: 'smartliving';
+    margin: 0 2px;
+    font-size: 13pt;
+    vertical-align: bottom;
+}
+
+/* Transitions */
+
+@TD: 0.2s;
+.basicTransition {
+  transition-property: all;
+  transition-duration: @TD;
+  transition-timing-function: ease-in-out;
+
+  -webkit-transition-property: all;
+  -webkit-transition-duration: @TD;
+  -webkit-transition-timing-function: ease-in-out;
+}
+
+.stateTransition{
+  transition-property: width, height, max-width, max-height, transform, background-color, opacity, margin, padding, border, top, bottom, left, right;
+  transition-duration: @TD;
+  transition-timing-function: ease-in-out;
+
+  -webkit-transition-property: width, height, max-width, max-height, -webkit-transform, background-color, opacity, margin, padding, border,top, bottom, left, right;
+  -webkit-transition-duration: @TD;
+  -webkit-transition-timing-function: ease-in-out;
+}
+
+.customTransition(@t){
+  transition-property: width, height, max-width, max-height, transform, background-color, opacity, margin, padding, border, top, bottom, left, right;
+  transition-duration: @t;
+  transition-timing-function: ease-in-out;
+
+  -webkit-transition-property: width, height, max-width, max-height, -webkit-transform, background-color, opacity, margin, padding, border,top, bottom, left, right;
+  -webkit-transition-duration: @t;
+  -webkit-transition-timing-function: ease-in-out;
+}
+
+.circle-button {
+  height: @grid-box-btn-size;
+  width: @grid-box-btn-size;
+  line-height: @grid-box-btn-size;
+  border-radius: 100%;
+}
+
+.selection-disabled {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.selection-enabled {
+  -webkit-touch-callout: text;
+  -webkit-user-select: text;
+  -khtml-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+}
+
+.noTransition {
+  -webkit-transition: none;
+  -moz-transition: none;
+  -ms-transition: none;
+  transition: none;
+}
+
+.transition(@value) {
+  -webkit-transition: @value all ease;
+  -moz-transition: @value all ease;
+  -ms-transition: @value all ease;
+  transition: @value all ease;
+}
+
+.grid-box-shadow{
+  -moz-box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.small-box-shadow{
+  -moz-box-shadow: 0 5px 0 rgba(0,0,0,0.1);
+  -webkit-box-shadow: 0 5px 0 rgba(0,0,0,0.1);
+  box-shadow: 0 5px 0 rgba(0,0,0,0.1);
+}
+
+.box-style{
+  background-color: @white;
+  border-radius: 1px;
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.06), 0px 2px 2px rgba(0, 0, 0, 0.06);
+  .clearfix;
+}
+
+.combo-box-style{
+  background-color: @white;
+  border-radius: 1px;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.08), 0px 0px 10px rgba(0, 0, 0, 0.08), 0px 0px 15px rgba(0, 0, 0, 0.1);
+  .clearfix;
+}
+
+.scale(@value){
+  -moz-transform: scale(@value);
+  -webkit-transform: scale(@value);
+  -ms-transform: scale(@value);
+  transform: scale(@value);
+}
+
+.scale-x-y(@X, @Y){
+  -moz-transform: scale(@X, @Y);
+  -webkit-transform: scale(@X, @Y);
+  -ms-transform: scale(@X, @Y);
+  transform: scale(@X, @Y);
+}
+
+.translate(@X, @Y){
+  -moz-transform: translate(@X, @Y);
+  -webkit-transform: translate(@X, @Y);
+  -ms-transform: translate(@X, @Y);
+  transform: translate(@X, @Y);
+}
+
+.rotateX(@value){
+  -moz-transform: rotateX(@value);
+  -webkit-transform: rotateX(@value);
+  -ms-transform: rotateX(@value);
+  transform: rotateX(@value);
+}
+
+.rotate(@deg){
+  -moz-transform: rotate(@deg);
+  -webkit-transform: rotate(@deg);
+  -ms-transform: rotate(@deg);
+  transform: rotate(@deg);
+}
+
+.origin(@X, @Y) {
+  -webkit-transform-origin: @X @Y;
+  -moz-transform-origin: @X @Y;
+  transform-origin: @X @Y;
+}
+
+
+.absolute-center{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  .translate(-50%, -50%)
+}
+
+.text-overflow{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.subscribe-icon-check{
+  content:'\e642';
+  font-family: 'smartliving';
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  line-height: 14px;
+  font-size: 11px;
+  text-align: center;
+  z-index: 1;
+  right: 12px;
+  top: 14px;
+  border-radius: 3px;
+  background: transparent;
+  text-shadow: 1px 1px 0px @white;
+  -webkit-text-shadow: 1px 1px 0px @white;
+}
+
+

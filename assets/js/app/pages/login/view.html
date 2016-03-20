@@ -1,0 +1,28 @@
+<section class="global-container">
+    <div class="no-nav-container">
+        <section>
+            <form class="page-container login {{$root.brand.loginBgClass}}" ng-submit="vm.login()" ng-controller="LoginController as vm" id="login-form">
+                <div class="alert alert-success" ng-show="info" ng-bind="info"></div>
+
+                <ng-include src="'/assets/js/app/branding/%BRAND_NAME%/header.html'"></ng-include>
+
+                <div class="form-body">
+                    <h1>Play Guessing game</h1>
+                    <h1>Enter Device ID and Device Ticket of your Smartphone device</h1>
+                    <article>
+                        <input type="text" class="text-box top icon-person" ng-model="vm.loginData.deviceId" placeholder="Device ID">
+                        <i class="sl-sl-user"></i>
+                    </article>
+                    <article>
+                        <input type="password" class="text-box bottom icon-lock" ng-model="vm.loginData.ticket" placeholder="Device Ticket">
+                        <i class="sl-sl-lock"></i>
+                    </article>
+                    <div class="forms-submit">
+                        <button angular-ripple class="main-button" type="submit">Sign in</button>
+                    </div>
+                </div>
+            </form>
+        </section>
+    </div>
+</section>
+

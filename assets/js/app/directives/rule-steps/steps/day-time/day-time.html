@@ -1,0 +1,56 @@
+<h1 class="caption">Configure Day Time trigger</h1>
+<article class="scheduler">
+    <div class="scheduler-set">
+        <h2><i class="sl-sl-calendar-bold"></i><span>Days of week</span></h2>
+            <div >
+                <label ng-repeat ="day in days" class="vertical-toggle diff">
+                   <input type="checkbox" ng-checked="day.isSelected" ng-click = "dayClicked(day)" test-id = "day">
+                      <div class="toggle-content">
+                         <p>{{day.name}}</p><p>{{day.name}}</p>
+                      </div>
+                </label>
+                 
+            </div>
+
+    </div>
+
+     <div class="scheduler-set">
+        <h2><i class="sl-sl-clock-bold"></i><span>Time of Day</span></h2>
+             <div class="time-set">
+                <div class="num">
+                     <div counter-input time="hours" test-id = "hours">
+                        <div class="value" data-value = "6">06</div>
+                        <div class="value" data-value = "7">07</div>
+                        <div class="value" data-value = "8">08</div>
+                        <div class="value" data-value = "9">09</div>
+                        <div class="value" data-value = "10">10</div>
+                        <div class="value" data-value = "11">11</div>
+                        <div class="value" data-value = "0">{{amPmHours}}</div>
+                        <div class="value" data-value = "1">01</div>
+                        <div class="value" data-value = "2">02</div>
+                        <div class="value" data-value = "3">03</div>
+                        <div class="value" data-value = "4">04</div>
+                        <div class="value" data-value = "5">05</div>
+                     </div>
+                </div>
+                <span class="dots">:</span>
+                <div class="num">
+                     <div counter-input time="minutes" test-id = "minutes">
+                        <div class="value" data-value = "0">00</div>
+                        <div class="value" data-value = "5">05</div>
+                        <div class="value" data-value = "10">10</div>
+                        <div class="value" data-value = "15">15</div>
+                        <div class="value" data-value = "20">20</div>
+                        <div class="value" data-value = "25">25</div>
+                        <div class="value" data-value = "30">30</div>
+                        <div class="value" data-value = "35">35</div>
+                        <div class="value" data-value = "40">40</div>
+                        <div class="value" data-value = "45">45</div>
+                        <div class="value" data-value = "50">50</div>
+                        <div class="value" data-value = "55">55</div>
+                     </div>
+                </div>
+                    <label class="vertical-toggle"><input ng-model = "partOfDay" type="checkbox" ng-click="interfaceClicked()" ng-change = "changeTime()" ng checked = "partOfDay" test-id = "timeOfDay" ><div class="toggle-content"><p>AM</p><p>PM</p></div></label> 
+            </div>
+    </div>
+</article>

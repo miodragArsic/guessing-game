@@ -1,0 +1,44 @@
+<ng-include src="'/assets/js/app/devices/device-details.html'" permission="device-save"></ng-include>
+
+<div>
+    <section class="global-container" ng-class="{ open: vm.model.configOpen == true }" full-height>
+        <div class="grid-col-container" ng-show="vm.model.device">
+            <div class="grid-col">
+                <div class="content-alert danger" ng-if="vm.model.device._deleted">
+                    <p>This Device including it's assets has been deleted</p>
+                    <a class="main-button light-btn" ui-sref="main.devices">Back to Devices</a>
+                </div>
+                <div ng-class="{deleted: vm.model.device._deleted}">
+
+                    <sl-header-item model="vm.model.headerModel" is-active="vm.model.isConfigOpen()" toggle-action="vm.model.toggleConfig()" color="vm.model.color">
+                    </sl-header-item>
+                    <div class="grid-box-menu box-style" ng-show="vm.model.device.assets.length > 0 || vm.model.device.type === 'quick-demo'">
+                        <button ng-click="vm.setControl('asset-controls')" ng-class="{ active: vm.model.activeControl == 'asset-controls' || vm.model.activeControl == 'asset-list'}">
+                            <span>Assets</span>
+                        </button>
+                        <button ng-if="vm.model.device.type !== 'quick-demo'" ng-click="vm.setControl('activity')" ng-class="{ active: vm.model.activeControl == 'activity'}">
+                            <span>Activity</span>
+                        </button>
+
+                        <div class="align-right" ng-if="vm.model.activeControl == 'asset-controls' || vm.model.activeControl == 'asset-list'">
+                            <button ng-click="vm.setControl('asset-controls')" ng-class="{ active: vm.model.activeControl == 'asset-controls'}" class="icon">
+                                <i class="sl-sl-grid"></i>
+                            </button>
+                            <button ng-click="vm.setControl('asset-list')" ng-class="{ active: vm.model.activeControl == 'asset-list'}" class="icon">
+                                <i class="sl-sl-hamburger"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <asset-control-grid ng-if="vm.model.activeControl == 'asset-controls'" ground-id="vm.model.device.groundId" assets='vm.model.device.assets' model='vm.model'></asset-control-grid>
+
+                    <asset-grid ng-if="vm.model.activeControl == 'asset-list'" assets='vm.model.device.assets' model="vm.model"></asset-grid>
+                    <!-- Activity box -->
+                    <header class="control-box" ng-if="vm.model.activeControl === 'activity'">
+                        <device-control device='vm.model.device' control="vm.model.settings.control" class="device-control-big"> </device-control>
+                    </header>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

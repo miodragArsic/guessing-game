@@ -1,0 +1,23 @@
+<ng-include src="'/assets/js/app/devices/asset-details.html'" permission="device-save"></ng-include>
+
+<div>
+    <section class="global-container" ng-class="{ open: vm.model.configOpen == true }" full-height>
+        <div class="grid-col-container">
+            <div class="grid-col">
+                <div class="content-alert danger" ng-if="vm.model.asset._deleted">
+                    <p>This Asset has been deleted</p>
+                    <a class="main-button light-btn" ng-click="vm.goBack()">Back to {{vm.model.parent.name}}</a>
+                </div>
+                <div ng-class="{deleted: vm.model.asset._deleted}">
+                    <sl-header-item model="vm.model.headerModel" is-active="vm.model.isConfigOpen()" toggle-action="vm.model.toggleConfig()">
+                    </sl-header-item>
+                    <!-- Controls box -->
+                    <header class="control-box">
+                        <control-handler class="control-box-single" asset='vm.model.asset' enabled="$root.hasPermission('device-command')"> </control-handler>
+                        <span class="state-time" from-now="vm.model.asset.state.at" title="{{vm.model.asset.state.at}}"></span>
+                    </header>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

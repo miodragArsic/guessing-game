@@ -1,0 +1,77 @@
+<section ng-controller="NewDeviceController as vm">
+      <section class="devices-intro"  ng-class="{'shown': !vm.isIntroOnDevicesHidden}" ng-show="!vm.isIntroOnDevicesHidden">
+        <header class="devices-intro-header">
+            <h1>Connect your devices</h1>
+            <div ng-click="vm.toggleIntroOnDevices()" class="sl-close notify-close" tooltips tooltip-template="Dismiss" tooltip-side="top" tooltip-class="notify-close-tooltip"></div>
+        </header>
+        <div class="col-holder">
+            <!--Enroll mobile device-->
+            <state-control class="add-box col-02" identifier="enroll-mobile-device" modifier-class="add-box-active">
+                <div tabindex="0" class="intro-box" ng-class="{completed: vm.hasMobileDevice}">
+                    <article ng-if="!vm.hasMobileDevice">
+                        <div class="intro-box-icon"><i class="sl-device-mobile"></i></div>
+                        <h3>Discover the power of SmartLiving</h3>
+                        <p>Connect your smartphone as a device and discover the sensors within.</p>
+                        <div class="intro-button">
+                            <button class="main-button white-btn add-box-trigger-btn" ng-click="vm.createMobileDevice()">Connect smartphone</button>
+                        </div>
+                    </article>
+                    <div ng-if="vm.hasMobileDevice">
+                        <article>
+                            <div class="intro-box-icon"><i class="sl-device-mobile"></i></div>
+                            <h3><span>Completed <i class="sl-sl-ok-bold tick"></i></span></h3>
+                            <p>You have connected your smartphone</p>
+                        </article>
+                        <div class="intro-button spacing-y"><p><a class="link" ui-sref="main.groundDevices({id: vm.groundId})">View devices</a></p></div>
+                    </div>
+                </div>
+            </state-control>
+
+            <!--Make Kit device-->
+            <state-control class="add-box col-02" identifier="add-kit-device" modifier-class="add-box-active" state-morph>
+                <div tabindex="0" class="intro-box" ng-class="{completed: vm.hasKitDevice}">
+                    <article  ng-show="!vm.hasKitDevice">
+                        <div class="intro-box-icon"><i class="sl-device-kit"></i></div>
+                        <h3>From your AllThingsTalk Rapid Development Kit</h3>
+                        <p>Connect a device from your kit</p>
+                        <p>
+                            <span class="tag big tag-white-outline">Arduino kit</span>
+                            <span class="tag big tag-white-outline">Raspberry Pi kit</span>
+                            <span class="tag big tag-white-outline">Intel Edison kit</span>
+                        </p>
+                        <p><a class="link ui-el-caption spacing-y" href="http://shop.allthingstalk.com/product-category/maker_kits" target="_blank">Discover the AllThingsTalk Kits</a></p>
+                        <div class="intro-button">
+                            <button class="main-button transparent-btn add-box-trigger-btn" state-control-type="trigger">Connect my device</button>
+                        </div>
+                    </article>
+                    <div ng-show="vm.hasKitDevice">
+                        <article>
+                            <div class="intro-box-icon"><i class="sl-device-kit"></i></div>
+                            <h3><span>Completed <i class="sl-sl-ok-bold tick"></i></span></h3>
+                            <p>You have connected a device from your AllThingsTalk kit</p>
+                            <p><a class="link ui-el-caption spacing-y" href="http://shop.allthingstalk.com/product-category/maker_kits" target="_blank">Discover the AllThingsTalk Kits</a></p>
+                        </article>
+                        <div class="intro-button spacing-y"><p><a class="link" ui-sref="main.groundDevices({id: vm.groundId})">View devices</a></p></div>
+                    </div>
+                </div>
+                <div state-control-type="container" class="add-box-container">
+                    <i class="sl-close modal-close" state-control-type="close"></i>
+                    <section class="modal-scroll modal-padding">
+                        <ng-include src="'/assets/js/app/partials/add-new/new-device/kit-device-content.html'"></ng-include>
+                    </section>
+                </div>
+                <div state-control-type="close" class="add-box-overlay"></div>
+                <div state-control-type="morph" class="add-box-morph"></div>
+            </state-control>
+
+        </div>
+    </section>
+
+    <div ng-click="vm.toggleIntroOnDevices()" ng-class="{'shown': vm.isIntroOnDevicesHidden}" ng-show="vm.isIntroOnDevicesHidden" class="intro-on-devices-trigger">
+        <i class="sl-sl-devices-setup" tooltips tooltip-template="Connect your devices" tooltip-side="right"></i>
+    </div>
+</section>
+
+
+
+

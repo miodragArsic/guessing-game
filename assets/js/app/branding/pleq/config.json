@@ -1,0 +1,9 @@
+ {
+     "favicon": "assets/img/brand/pleq/favicon.png",
+     "logoIcon": "assets/img/brand/pleq/pleq-logo.svg",
+     "logoType": "assets/img/brand/pleq/pleq-typo.svg",
+     "logoAlt": "pleq",
+     "brandColor": "#5598AA",
+     "name": "Pleq",
+     "loginBgClass":""
+ }

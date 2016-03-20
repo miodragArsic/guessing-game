@@ -1,0 +1,3 @@
+<ground-menu ng-controller="MainPageController as vm" model="vm.groundModel" ng-if="vm.groundModel" is-open="vm.groundMenuOpen"></ground-menu>
+<ng-include src="vm.navigationUrl" ng-show="vm.isNavigationVisible()"></ng-include>
+<section ui-view class="main-page"></section>

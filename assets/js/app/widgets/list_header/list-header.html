@@ -1,0 +1,12 @@
+<!--<header class="page-header" ng-class="{'empty-list': viewModel.headerMode == 'expanded'}">-->
+<header class="page-header">
+    <div class="page-header-img">
+        <img src="{{viewModel.headerImage}}" alt="" />
+    </div>
+    <div class="page-header-text">
+        <h1>{{viewModel.headerTitle}}</h1>
+        <p ng-show="viewModel.headerSubTitle">{{viewModel.headerSubTitle}}</p>
+    </div>
+    <div ng-transclude class="page-header-button-holder">
+    </div>
+</header>

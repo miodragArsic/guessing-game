@@ -1,0 +1,88 @@
+
+.single-input-control{
+  position: relative;
+  min-width: 260px;
+  margin: auto;
+  text-align: left;
+
+  label{
+    display: inline-block;
+    text-transform: uppercase;
+    font-size: 10px;
+    font-weight: 600;
+    background: @light-gray;
+    padding: 2px 7px;
+    clear: both;
+    text-align: left;
+    position: absolute;
+    top: -5px;
+    left: 0;
+  }
+
+  .clearfix;
+  input{
+    width: 100%;
+    float: left;
+    padding-right:50px;
+    padding-left: 20px;
+    border-radius: 3px;
+
+    &::-webkit-input-placeholder {
+      color: @text-color;
+    }
+    &:-moz-placeholder {
+      color: @text-color;
+      opacity:  1;
+    }
+    &::-moz-placeholder {
+      color: @text-color;
+      opacity:  1;
+    }
+    &:-ms-input-placeholder {
+      color: @text-color;
+    }
+
+    &:focus::-webkit-input-placeholder { color:transparent; }
+    &:focus:-moz-placeholder { color:transparent; }
+    &:focus::-moz-placeholder { color:transparent; }
+    &:focus:-ms-input-placeholder { color:transparent; }
+  }
+
+  button{
+    height: @input-height;
+    padding: 0 15px;
+    border-radius: 0 3px 3px 0;
+    background: @main;
+    color: #fff;
+    border: none;
+    right:0;
+    bottom:0;
+    position:absolute;
+    font-size: 20px;
+    cursor: pointer;
+    .transition(0.2s);
+
+    &:hover {
+       background:darken(@main, 10);
+     }
+
+    &.disabled-btn {
+      background: @light-gray;
+      color: lighten(@text-color, 20);
+      cursor: default;
+      pointer-events: none;
+    }
+  }
+  button.green-btn {
+    background: @green;
+    &:hover{
+      background: darken(@green, 10);
+    }
+  }
+
+  &.large {
+    input, button { height: 65px}
+  }
+}
+
+

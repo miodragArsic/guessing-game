@@ -1,0 +1,80 @@
+.guide-circle {
+  width: 120px;
+  height: 120px;
+  border-radius: 120px;
+  line-height: 120px;
+  font-size: 50px;
+  color: @text-color;
+  font-weight: 900;
+  margin: auto;
+//  background: @light-light-gray;
+  border: solid 1px lighten(@text-color,40);
+  box-sizing: content-box;
+  img {
+    width: 55%;
+    margin: 22.5%;
+  }
+}
+
+.guide-box {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+  .id{
+    display: block;
+  }
+
+}
+
+.guide-box h4 {
+  font-weight: 300;
+  font-size: 20px;
+}
+
+.guide-col {
+  padding: 5% 2%;
+  display: table-cell;
+  vertical-align: top;
+  border-right: solid 1px @light-gray;
+  &:last-child {
+    border-right: none;
+  }
+}
+
+//Device description
+
+.markdown-description{
+  color: lighten(@text-color, 10);
+  *{
+    .selection-enabled
+  }
+  >*:first-child{
+    margin-top: 0;
+  }
+  >*:last-child{
+    margin-bottom: 0;
+  }
+  li {
+    margin: 10px 0;
+  }
+  ul, ol {
+    padding-left: 30px;
+    margin: 20px 0;
+  }
+
+  h1, h2, h3, h4, h5, h6,{
+    margin: 10px 0;
+    color: @text-color;
+  }
+
+  h1 {font-size: 150%; font-weight: 900;}
+  h2 {font-size: 130%; font-weight: 400;}
+  h3 {font-size: 110%;}
+  h4 {font-size: 100%;}
+  h5 {font-size: 95%;}
+  h6 {font-size: 90%;}
+
+  p {
+    line-height: 1.3em;
+  }
+}

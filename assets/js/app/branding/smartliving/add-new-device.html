@@ -1,0 +1,23 @@
+<section ng-controller="NewDeviceController as vm">
+    <state-control class="add-box col-02" identifier="add-box-device" modifier-class="add-box-active" state-morph>
+        <!--trigger-->
+        <div tabindex="0" class="add-box-trigger" state-control-type="trigger">
+            <article>
+                <i class="sl-sl-plus-bold"></i>
+                <h3>Make new Device</h3>
+            </article>
+        </div>
+        <!--container-->
+        <div state-control-type="container" class="add-box-container">
+
+            <i class="sl-close modal-close" state-control-type="close"></i>
+            <section class="modal-scroll modal-padding">
+                <ng-include src="'/assets/js/app/partials/add-new/new-device/kit-device-content.html'"></ng-include>
+            </section>
+        </div>
+        <div state-control-type="close" class="add-box-overlay"></div>
+        <div state-control-type="morph" class="add-box-morph"></div>
+    </state-control>
+</section>
+
+

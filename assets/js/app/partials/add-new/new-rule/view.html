@@ -1,0 +1,13 @@
+<state-control class="add-box" identifier="add-box-member" modifier-class="add-box-active" state-morph on-toggle="vm.reloadMembers()" state="vm.isOpen">
+    <!--trigger-->
+    <div tabindex="0" class="add-box-trigger" state-control-type="trigger">
+        <ng-include src="'/assets/js/app/partials/add-new/new-rule/trigger.html'"></ng-include>
+    </div>
+    <!--container-->
+    <div state-control-type="container" class="add-box-container">
+        <ng-include src="'/assets/js/app/partials/add-new/new-rule/content.html'"></ng-include>
+    </div>
+    <div state-control-type="close" class="add-box-overlay"></div>
+    <div state-control-type="morph" class="add-box-morph"></div>
+</state-control>
+

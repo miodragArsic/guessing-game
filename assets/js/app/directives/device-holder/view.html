@@ -1,0 +1,14 @@
+<div class="device-container">
+    <div class="device-header">
+        <div class="device-header-icon" ng-class="deviceHeaderIcon"></div>
+        <div class="device-notification-indicator"></div>
+        <div class="device-header-name">{{ deviceData.name }}</div>
+        <div class="device-header-location">Location: some location</div>
+    </div>
+
+    <div class="device-content">
+        <br/>
+        <br/>
+        <a href="/device/{{ deviceData.id }}/configure">Configure</a>
+    </div>
+</div>

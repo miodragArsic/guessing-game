@@ -1,0 +1,28 @@
+<section class="details-part">
+    <state-control class="accordion step-accordion" modifier-class="active">
+        <h2 state-control-type="trigger">Scan the QR code</h2>
+        <article state-control-type="container">
+            <qr text="vm.qrText" class="qr-code"></qr>
+            <small>You may need a separate app on your smartphone to read QR codes.</small>
+        </article>
+    </state-control>
+</section>
+
+<section class="details-part">
+    <state-control class="accordion step-accordion" modifier-class="active">
+        <h2 state-control-type="trigger">Or open the link below in your smartphone browser</h2>
+        <article state-control-type="container">
+            <code class="qr-code">
+                <pre>{{vm.qrText}}</pre>
+            </code>
+            <p>You'll get best experience if you use some of listed browsers.</p>
+            <ol>
+                <li>Chrome for android</li>
+                <li>Firefox for android</li>
+                <li>Opera for android</li>
+                <li>Safari for IOS</li>
+            </ol>
+
+        </article>
+    </state-control>
+</section>

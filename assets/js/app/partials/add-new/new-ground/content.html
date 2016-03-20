@@ -1,0 +1,20 @@
+<i class="sl-close modal-close" state-control-type="close"></i>
+<section class="modal-scroll modal-padding">
+    <form ng-submit="vm.createGround()">
+        <div class="create-new-control block">
+            <article class="add-control-step">
+                <i class="sl-sl-ground enrolment-icon"></i>
+                <h3>Create new Ground</h3>
+                <p>Ground is visible to anyone with the link.</p>
+                <div class="single-input-control">
+                    <label>Enter ground name</label>
+                    <input class="teams-header-input" type="text" ng-model="vm.model.newGroundName" ng-change="deviceChangeName()" placeholder=""/>
+                    <button angular-ripple id="submit-name" ng-class="{ 'disabled-btn': vm.model.newGroundName == null || vm.model.newGroundName == '' }" type="submit"><i class="sl-arrow_forward"></i></button>
+                </div>
+                <div class="balloon" ng-show="deviceError">
+                    <span ng-bind="deviceError"></span>
+                </div>
+            </article>
+        </div>
+    </form>
+</section>

@@ -1,0 +1,68 @@
+.bg-orange{ background-color: @att-orange;}
+.bg-yellow{ background-color: @att-yellow;}
+.bg-grass{ background-color: @att-grass;}
+.bg-green{ background-color: @att-green;}
+.bg-aqua{ background-color: @att-aqua; }
+.bg-blue{ background-color: @att-blue;}
+.bg-gray{ background-color: @top-bar-bg;}
+.bg-violet{ background-color: @att-violet;}
+.bg-pink{ background-color: @att-pink;}
+.bg-red{ background-color: @att-red;}
+.bg-white{ background-color: @att-red; color: @text-color}
+
+
+.bg-orange,
+.bg-yellow,
+.bg-grass,
+.bg-green,
+.bg-aqua,
+.bg-blue,
+.bg-gray,
+.bg-violet,
+.bg-pink,
+.bg-red{
+  color: @white;
+  .link, a{
+    color: @white;
+  }
+}
+
+.bg-texture{
+  background-image: url('../img/sl-texture.png');
+  background-position: center center;
+  background-size: cover;
+}
+
+.login-intro{
+  padding: @content-padding*2 @content-padding;
+
+  h1{
+    font-weight: 300;
+  }
+
+  h2{
+    font-weight: 300;
+    font-size: 260%;
+  }
+
+  .landing-logo{
+    width: 300px;
+    height: auto;
+    max-width: 90%;
+    margin: auto;
+  }
+
+  .intro-slide{
+    margin: auto;
+    max-width: 1200px;
+    img{
+      margin: auto;
+      max-width: 100%;
+    }
+  }
+  .text-only{
+    max-width: 700px;
+    margin: auto;
+    text-align: center;
+  }
+}

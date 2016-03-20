@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" ng-app="demo">
+<!--<![endif]-->
+
+<head>
+    <base href="/">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Smartliving Controls Demo</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, height=device-height,  initial-scale=1, maximum-scale=1, user-scalable=no, user-scalable=0" />
+    <link href='https://fonts.googleapis.com/css?family=Lato:100,150,300,400,700,900&subset=all' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="smartliving/controls/demo/assets/css/demo.css">
+    <link rel="stylesheet" href="smartliving/controls/demo/assets/css/smartliving.widgets.bundle.css">
+</head>
+
+<body ng-cloak>
+    <div ng-controller="DemoController as vm">
+        <div class="wrapper">
+            <ng-include src="'controls.html'"></ng-include>
+        </div>
+    </div>
+    <script type="text/ng-template" id="controls.html">
+        <ul class="controls-list" ng-cloak>
+            <li class="control-box" ng-class="{'control-box-single':vm.showControl, 'control-box-multiple':!vm.showControl}" ng-repeat="asset in vm.assets | filter: { name: vm.showControl } :true">
+                <header ng-cloak class="clearfix">
+                    <span class="control-name" ng-class="{'tag-actuator':asset.$actuatingControl, 'tag-sensor':!asset.$actuatingControl}" ng-bind="asset.$actuatingControl?'actuator':'sensor'"></span>
+                    <span class="control-name" ng-bind="asset.name"></span>
+                    <a ng-cloak ng-show="asset.$actuatingControl" class="btn" ng-click="vm.toggleEnabled(asset)" ng-bind="asset.enabled?'Show disabled':'Show enabled'"></a>
+                </header>
+                <dynamic-control asset="asset" enabled="asset.enabled"></dynamic-control>
+            </li>
+        </ul>
+    </script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.1/angular.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.1/angular-animate.js"></script>
+    <script type="text/javascript" src="smartliving/controls/demo/assets/js/smartliving.widgets.bundle.js"></script>
+    <script type="text/javascript" src="smartliving/controls/demo/assets/app.js"></script>
+</body>
+
+</html>

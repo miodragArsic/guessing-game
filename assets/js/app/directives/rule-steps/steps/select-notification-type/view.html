@@ -1,0 +1,18 @@
+<!--<h1 class="caption">Notification type</h1>-->
+<form>
+    <div class="checkbox">
+        <input type="checkbox" id="web-notifications" checked="checked" ng-model="selectedNotifications.web" test-id="selectValue">
+        <div class="indicator"></div>
+        <label class="label" for="web-notifications">Web notifications</label>
+    </div>
+    <div class="checkbox">
+        <input type="checkbox" id="push-notifications" ng-model="selectedNotifications.push">
+        <div class="indicator"></div>
+        <label class="label" for="push-notifications">Mobile app notifications</label>
+    </div>
+    <div class="checkbox">
+        <input type="checkbox" id="email-notifications" ng-model="selectedNotifications.email">
+        <div class="indicator"></div>
+        <label class="label" for="email-notifications">E-mail notifications</label>
+    </div>
+</form>

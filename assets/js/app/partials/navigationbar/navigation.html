@@ -1,0 +1,15 @@
+<div id="navbar-top">
+    <!--Top bar left menu-->
+    <ng-include src="'/assets/js/app/partials/navigationbar/environment-menu.partial.html'"></ng-include>
+
+    <!--Top bar right menu-->
+    <section class="top-bar-right">
+        <ng-include src="'/assets/js/app/partials/navigationbar/user-menu.partial.html'"></ng-include>
+        <ng-include src="'/assets/js/app/partials/navigationbar/notification-menu.partial.html'"></ng-include>
+    </section>
+</div>
+
+<div class="ground-nav" ng-if="vm.inGround">
+    <ng-include src="'/assets/js/app/partials/navigationbar/ground-nav.partial.html'"></ng-include>
+</div>
+

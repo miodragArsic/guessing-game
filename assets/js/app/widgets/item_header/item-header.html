@@ -1,0 +1,41 @@
+<section class="box-wrap relative item-header">
+    <div class="grid-box this-box" ng-class="{
+    active: vm.isActive(),
+    'details-shown': vm.model.detailsActive,
+    'personal': vm.model.isGroundPersonal
+     }">
+        <div class="relative">
+            <div class="grid-box-icon-container" ng-class="[vm.model.icon, vm.model.titleLetterIconClass, vm.color]">
+                <span class="item-icon-letter" ng-if="vm.model.useTitleLetterAsIcon">{{ vm.model.title | limitTo : 2 | capitalize }}</span>
+            </div>
+            <div class="grid-box-text">
+                <div angular-ripple class="grid-box-back" ng-click="vm.goBack()"><i class="sl-arrow_back"></i><span>{{vm.model.backText}}</span></div>
+                <h1>{{vm.model.title}}
+                    <span ng-repeat="tag in vm.model.tags" class="tag big" ng-class='tag.cssClass'> {{tag.text}}</span>
+                    <!-- Device Status -->
+                    <span ng-if="vm.model.showStatus" class="state-time-tag" title="{{vm.model.device.lastActiveAt}}" device-status device="vm.model.device"></i></span>
+                </h1>
+                <div class="grid-box-icon-bar">
+                    <p class="id tag-holder" ng-repeat="nfo in vm.model.info"> <span>{{nfo.name}}</span> {{nfo.value}}</p>
+                    <subscribed-indicator ng-if="vm.model.showSubscribeIndicator" item-id="vm.model.id"></subscribed-indicator>
+                    <i ng-if="vm.model.notificationsActive" ng-class="{ 'active':vm.model.notificationsActive}" class="tag-icon sl-bell-outline2" title="You will be notified when device changes state"></i>
+                    <i class="tag-icon" ng-class="icon.class" ng-attr-title="{{icon.title}}" ng-click="icon.clickHandler()" ng-repeat="icon in vm.model.tagIcons"><span>{{icon.count}}</span></i>
+                </div>
+            </div>
+            <div class="grid-box-actions">
+
+                <a href="" angular-ripple ng-repeat="boxAction in vm.model.boxActions" ng-click="boxAction.handler()"  ng-class="boxAction.cssClass" tooltips tooltip-template="{{boxAction.title}}" tooltip-side="top">{{boxAction.text}}</a>
+                <a href="" state-control-button identifier="device-details" permission="device-save" ng-hide="vm.configuration.hideActions" angular-ripple class="grid-box-btn sl-sl-settings2" tooltips tooltip-template="Open settings" tooltip-side="top"></a>
+
+                <div ng-transclude></div>
+            </div>
+
+            <div class="grid-box-details-toggle">
+                <a class="corner" ng-if="vm.model.hasDetails" ng-click="vm.model.toggleDetails()" ng-class="{ active: vm.model.detailsActive }"></a>
+            </div>
+        </div>
+    </div>
+    <div class="grid-box-details" ng-if="vm.model.hasDetails" ng-class="{ active: vm.model.detailsActive}">
+        <div btf-markdown="vm.model.details" class="markdown-description"></div>
+    </div>
+</section>

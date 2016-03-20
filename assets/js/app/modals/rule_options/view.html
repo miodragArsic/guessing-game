@@ -1,0 +1,70 @@
+<div class="modal-rule-options">
+    <div class="modal-header">
+        <h3 class="modal-title">Rule details</h3>
+    </div>
+    <div class="modal-scroll">
+        <section>
+            <div class="modal-row">
+                <inline-edit value="vm.newRuleName" confirm-action="vm.updateRule()" is-enabled="vm.isRuleEditEnabled"></inline-edit>
+            </div>
+            <div class="modal-row" ng-show="vm.isDefinitionLoaded">
+                <ul class="step-tabs">
+                    <li>
+                        <sl-rule-section-preview section-name="When" section-data="vm.definitionModel.when"></sl-rule-section-preview>
+                    </li>
+                    <li>
+                        <sl-rule-section-preview section-name="Then" section-data="vm.definitionModel.then"></sl-rule-section-preview>
+                    </li>
+                    <li ng-if="vm.definitionModel.else.isSectionLoaded">
+                        <sl-rule-section-preview section-name="Else" section-data="vm.definitionModel.else"></sl-rule-section-preview>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <section class="modal-bottom">
+            <ul class="ground-actions">
+                <li angular-ripple>
+                    <a ng-show="!vm.hasIssues" ng-click="vm.toggleRuleStatus()">
+                        <i ng-class="{'active sl-sl-line-stop': vm.isEnabled, 'sl-sl-line-play' : !vm.isEnabled}"></i>
+                        <span ng-show="!vm.isEnabled">Start</span>
+                        <span ng-show="vm.isEnabled">Stop</span>
+                    </a>
+                </li>
+
+                <li angular-ripple>
+                    <a ng-show="!vm.hasIssues && vm.isRuleSimple" ng-click="vm.editRuleInWizard()">
+                        <i class="sl-sl-edit"></i>
+                        <span>Edit in Rules wizard</span>
+                    </a>
+                </li>
+                <li angular-ripple>
+                    <a ng-show="!vm.hasIssues" ng-click="vm.editRuleInJSON()" test-id="editRuleButton">
+                        <i class="sl-sl-code"></i>
+                        <span>Edit in JSON editor</span>
+                    </a>
+                </li>
+                <li angular-ripple>
+                    <a ng-click="vm.viewRuleHistory()" test-id="viewRuleHistoryButton">
+                        <i class="sl-sl-clock-bold"></i>
+                        <span>Show History</span>
+                    </a>
+                </li>
+                <li angular-ripple>
+                    <a>
+                        <inline-control first-state="inline-control-delete" second-state="inline-control-delete-active" confirm-element-id="inline-control-confirm" confirm-action="vm.deleteRule(rule)" state="vm.deleteOpen" test-id="deleteButton">
+                            <i class="sl-sl-delete"></i>
+                            <article class="inline-confirm">
+                                <div class="inline-control-message">Delete?</div>
+                                <div class="inline-control-no-button">No</div>
+                                <div class="inline-control-yes-button" id="inline-control-confirm" test-id="yes">Yes</div>
+                            </article>
+                            <span>Delete</span>
+                        </inline-control>
+                    </a>
+                </li>
+            </ul>
+        </section>
+
+    </div>
+
+</div>

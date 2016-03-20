@@ -1,0 +1,22 @@
+<div class="modal-notifications">
+    <div class="modal-header">
+        <h3 class="modal-title">All notifications</h3>
+    </div>
+    <div class="modal-scroll">
+        <div class="modal-row" ng-repeat="notification in vm.model.notifications | orderBy:'-data.createdOn' track by $index">
+            <article class="activity-box" ng-class="{ new: !notification.value.isRead }">
+                <span class="notification-indicator" title="mark as read" ng-click="vm.model.markAsRead(notification)"></span>
+                <div class="message" ng-click="vm.viewNotification(notification)">
+                    <ng-include src="notification.template"></ng-include>
+                    <small from-now="notification.at"></small>
+                </div>
+            </article>
+        </div>
+        <div class="modal-row">
+            <article class="activity-box">
+                <p ng-if="vm.model.notifications.length === 0">You don't have notifications</p>
+            </article>
+        </div>
+        <button-load-more ng-if="vm.model.notifications.length >= vm.model.pageSize" load="vm.model.loadMore()" size="vm.model.pageSize"></button-load-more>
+    </div>
+</div>

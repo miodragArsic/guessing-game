@@ -1,0 +1,78 @@
+ <section class="device-activity">
+ <!-- kada nema numerickih asseta -->
+     <article class="device-activity-message" ng-if="vm.numberOfNumericAssets === 0"> 
+         <i class="sl-line-chart"></i>
+         <h2>Chart shows only numerical <span tooltips tooltip-smart="true" tooltip-template="Assets that have number or integer set as profile type">numerical</span> assets activity</h2>
+         <p>Device <b>{{vm.device.title}}</b> has no numerical assets.</p>
+     </article>
+     <div ng-if="vm.numberOfNumericAssets > 0">
+         <article class="alert-msg-calm warning" ng-if="!vm.device.activityEnabled">
+             <h3>Storing device activity is OFF</h3>
+             <p>Storing device activity in the cloud provides access to your data</p>
+             <a class="main-button light-btn small-btn alert-msg-btn" ng-click="vm.enableActivity(vm.device)" permission="device-save">Start storing device activity</a>
+         </article>
+         <article class="device-activity-content" ng-class="{ 'full-screen': vm.isFullscreen == true }">
+             <div class="device-activity-asset-list" drag>
+                 <ul>
+                     <li class="footnote">
+                         <small>
+                             <span ng-if="vm.assetChartConfig.type === 'bar-chart'">Bar</span>
+                             <span ng-if="vm.assetChartConfig.type === 'line-chart'">Line</span>
+                             chart shows only numerical assets activity
+                         </small>
+                     </li>
+                     <li ng-class="{active: asset._showAsset}" ng-repeat="asset in vm.assets" ng-click="vm.assetClicked(asset)">
+                         <span class="legend-indicator" ng-style="vm.generateColor(asset)"></span>
+                         <span class="tooltip">
+                             <span ng-class="{'tag-sensor': asset.is === 'sensor', 'tag-virtual': asset.is === 'virtual', 'tag-actuator': asset.is === 'actuator', 'tag-config': asset.is === 'config'}">{{asset.is}}</span>
+                         </span>
+                         <h2>{{asset.title}}
+                             <!--<span ng-class="{'tag-sensor': asset.is === 'sensor', 'tag-virtual': asset.is === 'virtual', 'tag-actuator': asset.is === 'actuator', 'tag-config': asset.is === 'config'}">{{asset.is}}</span>-->
+                         </h2>
+                         <h3>{{asset.state.value}}<span> {{asset.profile.unit}}</span></h3>
+                     </li>
+                 </ul>
+             </div>
+             <div class="device-activity-graph">
+                 <asset-chart assets='vm.assets' config='vm.assetChartConfig'> </asset-chart>
+                 <div class="graph-buttons">
+                     <div class="left">
+
+                        <state-control modifier-class="active" class="graph-btn graph-drop">
+                             <aside state-control-type="trigger"><span><b>{{vm.setTimeLabel()}}</b></span></aside>
+                             <aside state-control-type="container">
+                                 <span state-control-type="close" ng-click="vm.timeSelected('60m')">1 hour</span>
+                                 <span state-control-type="close" ng-click="vm.timeSelected('24h')">24 hours</span>
+                                 <span state-control-type="close" ng-click="vm.timeSelected('7d')">1 week</span>
+                                 <span state-control-type="close" ng-click="vm.timeSelected('30d')">1 month</span>
+                             </aside>
+                         </state-control>
+                         <div class="graph-btn single-icon">
+                             <i class="graph-btn-icc small sl-arrow_back active" ng-click="vm.scrollLeft()" title="Move time window further in the past"></i>
+                         </div>
+                         <div class="graph-info"><b>{{vm.assetChartConfig.from | date:"dd.MM.yyyy. 'at' HH:mm"}} - {{vm.assetChartConfig.to | date:"dd.MM.yyyy. 'at' HH:mm"}}</b></div>
+                         <div class="graph-btn single-icon">
+                             <i class="graph-btn-icc small sl-arrow_forward" ng-class='{active: vm.assetChartConfig.page > 0}' ng-click="vm.scrollRight()" title="Move time window further to the future"></i>
+                         </div>
+                         
+                     </div>
+                     <div class="right">
+                         <div class="graph-btn">
+                             <i class="graph-btn-icc sl-bar-chart" ng-class="{active: vm.assetChartConfig.type === 'bar-chart'}" title="Show Bar chart" ng-click="vm.setControl('bar-chart')"></i>
+                             <i class="graph-btn-icc sl-line-chart" ng-class="{active: vm.assetChartConfig.type === 'line-chart'}" title="Show Line chart" ng-click="vm.setControl('line-chart')"></i>
+                             <i class="graph-btn-icc sl-area-range-chart" ng-class="{active: vm.assetChartConfig.type === 'area-range-chart'}" title="Show Area range chart" ng-click="vm.setControl('area-range-chart')"></i>
+                         </div>
+                         <div class="graph-btn single-icon">
+                             <i class="graph-btn-icc" ng-class="{ 'sl-arrow-maximise': !vm.isFullscreen == true, 'sl-arrow-minimise active': vm.isFullscreen == true }" title="Full screen" ng-click="vm.toggleFullscreen()"></i>
+                         </div>
+                         <div class="graph-btn single-icon">
+                             <i class="graph-btn-icc sl-info-large" tooltips tooltip-smart="true" tooltip-template="Chart shows only numerical assets activity"></i>
+                         </div>
+                     </div>
+                 </div>
+
+             </div>
+         </article>
+     </div>
+
+</section>

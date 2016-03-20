@@ -1,0 +1,545 @@
+
+/***ground colors***/
+@ground-blue: #2e72db;
+@ground-green: #43c399;
+@ground-grass: #a8c14d;
+@ground-yellow: #f4c45b;
+@ground-aqua: #25c2d5;
+@ground-violet: #9068c8;
+@ground-orange: #ff855a;
+@ground-pink: #ed4d73;
+@ground-personal: #5B6669;
+
+@focus: #fffae1;
+@overlay: rgba(0,0,0,0.6);
+
+//////////////// GROUND THEME///////////////
+.groundColor() {
+  ::selection {
+    color: @white;
+    background: @main;
+  }
+  ::-moz-selection {
+    color: @white;
+    background: @main;
+  }
+  ::selection {
+    color: @white;
+    background: @main;
+  }
+  ::-moz-selection {
+    color: @white;
+    background: @main;
+  }
+  ::selection {
+    color: @white;
+    background: @main;
+  }
+  ::-moz-selection {
+    color: @white;
+    background: @main;
+  }
+
+
+
+/***tabs***/
+
+  .tab-control-header{
+    li.active a {
+      border-bottom-color:@main;
+      color: @main;
+    }
+  }
+
+  /***alert messages***/
+  .alert-msg {
+    &.main {
+      border-color: @main
+    }
+  }
+
+  /***add boxes***/
+  .add-box-trigger{
+    i{
+      color: @main;
+    }
+
+  }
+
+
+  a, .text-hl {
+    color: @main;
+  }
+
+  #sl-icon{
+    background-color: @main;
+    &:hover{
+      background-color: darken(@main,5);
+    }
+  }
+
+  .main-menu {
+    a {
+      &:before{
+        background:@main;
+      }
+    }
+  }
+
+  .link,
+  .activity-chart ul li.active,
+  .user-area .nav-indicator li.current
+  {
+    color: @main;
+  }
+
+
+  google-map {
+    .map-circle {
+      border: 0px solid @main;
+    }
+    &:hover .map-circle {
+      border: 6px solid @main;
+    }
+  }
+
+  .add-control-trigger {
+    background-color: @main;
+    &:hover {
+      background-color: darken(@main, 5);
+    }
+  }
+  .single-input-control{
+    button{
+      background: @main;
+      &:hover {
+        background:darken(@main, 10);
+      }
+     &.disabled-btn {
+        background: @light-gray;
+        color: lighten(@text-color, 20);
+      }
+    }
+
+    button.green-btn {
+      background: @green;
+      &:hover{
+        background: darken(@green, 10);
+      }
+    }
+  }
+
+
+  //  buttons
+  .main-button {
+    background: @main;
+    &:hover{
+      background: darken(@main, 10);
+    }
+  }
+
+  .disabled-btn{
+    background: @light-gray;
+    color: lighten(@text-color, 20) !important;
+    &:hover {
+      background: @light-gray;
+      color: lighten(@text-color, 20);
+    }
+  }
+
+  .button-group {
+    a.button-group-selected {
+      color: @main;
+      border-color: @main;
+      i {
+        color: @main;
+      }
+    }
+  }
+
+  .main-button.linear-white {
+    background: none;
+    &:hover {
+      background: rgba(0,0,0,0.1);
+    }
+  }
+
+//  buttons end
+
+//  device drawer
+  .highlighted .CodeMirror {
+    border: 2px solid @main;
+  }
+//  device drawer end
+
+//  form elements
+  .checkbox.notify {
+    input[type="checkbox"]:checked + .indicator:after {
+      background: @main;
+      color: @white;
+    }
+  }
+  .radio {
+    .indicator:after {
+      background: @main;
+    }
+  }
+  .radio.notify {
+    input[type="radio"]:checked + .indicator:after {
+      background: @main;
+    }
+  }
+  .switch {
+    input[type="checkbox"]:checked + .switch-content{
+      i:after{
+        background: @main;
+      }
+    }
+  }
+  .check-btn {
+    i:before{
+      background: @main;
+    }
+  }
+  .toggle-diff-style {
+    color: @main;
+  }
+
+  .vertical-toggle.diff input[type="checkbox"]:checked ~ div{
+    .toggle-diff-style
+  }
+  .num {
+    .value{
+      &:hover {
+        color: @main;
+      }
+    }
+  }
+//  form elements end
+
+//  grid and grid-box
+  .grid-box {
+    &.new {
+      box-shadow: 0 0 0px 1px @main;
+    }
+
+    &.active {
+      .toggler {
+        color: @main;
+      }
+    }
+    &.this-box{
+      .grid-box-icon-container{
+        background-color: @main;
+        color: @white;
+      }
+    }
+  }
+  .grid-box-full-action:hover ~ .grid-box-text h1{
+    color: @main;
+  }
+
+  .grid-box-btn {
+    color: darken(@gray, 15);
+  }
+
+  .modal-row-button-holder {
+    .grid-box-btn {
+      color: lighten(@text-color, 10);
+    }
+  }
+
+  .grid-box-btn:hover{
+    color: @main;
+  }
+  .grid-box-btn.active{
+    color: @main;
+  }
+  .grid-box-back .grid-box-btn:hover {
+    color: @main;
+  }
+  .grid-box-menu {
+    button {
+      &.active{
+        color: @main;
+        border-color: @main;
+      }
+    }
+  }
+  .grid-box-back {
+    &:hover {
+      color: @main;
+    }
+  }
+  .grid-box-details-toggle {
+    .corner:before {
+      border-right-color: @main;
+    }
+    .corner:hover:before{
+      border-right-color:darken(@main,5);
+    }
+    .corner.active:before {
+      border-left-color: @main;
+    }
+  }
+//  grid and grid-box end
+
+  inline-control.home-add-button button {
+    background-color: @main;
+  }
+
+//  page
+  .page-header.active {
+    .page-header-button-holder {
+      .grid-box-btn{
+        background: @main;
+      }
+    }
+  }
+  .page-header-img {
+    background-color: @main;
+  }
+
+  .page-header-text {
+    .header-back {
+      &:hover {
+        color: @main;
+      }
+    }
+  }
+  .page-header-icon {
+    background-color: darken(@main, 10);
+  }
+  .page-button {
+    color: @main;
+  }
+  .page-header .round-button {
+    color: @main;
+  }
+//  page end
+
+//rules
+  .step-tabs{
+    li.current {
+      background: @main;
+      color: @white;
+
+      &:after {
+        border-color: transparent transparent transparent @main;
+      }
+    }
+  }
+  .step-control {
+    .btn {
+      color: @main;
+      &:hover{
+        background: @main;
+        color: @white;
+      }
+    }
+    .disabled-btn{
+      color: lighten(@text-color, 50);
+      background: @light-light-gray;
+
+      &:hover {
+        color: lighten(@text-color, 50);
+      }
+    }
+  }
+  .step-part-holder .step-part-holder.focus {
+    border: solid 2px @main
+  }
+//rules end
+  .users-table {
+    tr th {
+      color: @main;
+    }
+  }
+
+  .ground-details-content{
+    .ground-details-header {
+      background: @main;
+    }
+  }
+
+
+  .subscribe.active{
+    background: @main;
+    color: @white;
+  }
+  .ground-actions {
+    a.active{
+      >i {
+        color: @main;
+      }
+    }
+  }
+
+  .notification-indicator.new {
+    background-color: @main;
+  }
+  .tag-main {
+    background-color:@main;
+  }
+  .tag-main-outline {
+    color: @main;
+    border-color: @main;
+  }
+
+  .tag-icon{
+    &.active {
+      color: @main;
+    }
+  }
+  .bg-ground{
+    background-color: @main;
+    color: @white;
+  }
+
+
+  //  responsive
+
+
+////////Ground boxes
+  .box-header{
+    a.box-link:hover{
+      .box-text h1{
+        color: @main;
+      }
+    }
+    .icon-line{
+      i.active{
+        color: @main;
+      }
+    }
+    .box-icon{
+      color: @main;
+    }
+  }
+}
+///////////////////////////////////
+
+//////////////// GROUND COLORS///////////////
+
+.ground-blue {
+  @main: @ground-blue;
+  @dark-main: darken(@ground-blue,3);
+
+  .defaultColors();
+  .groundColor();
+}
+
+.ground-green {
+  @main: @ground-green;
+  @dark-main: darken(@ground-green,3);
+
+  .defaultColors();
+  .groundColor();
+}
+
+.ground-aqua {
+  @main: @ground-aqua;
+  @dark-main: darken(@ground-aqua,3);
+
+  .defaultColors();
+  .groundColor();
+}
+
+.ground-violet {
+  @main: @ground-violet;
+  @dark-main: darken(@ground-violet,3);
+
+  .defaultColors();
+  .groundColor();
+}
+
+.ground-orange {
+  @main: @ground-orange;
+  @dark-main: darken(@ground-orange,3);
+
+  .defaultColors();
+  .groundColor();
+}
+
+.ground-pink {
+  @main: @ground-pink;
+  @dark-main: darken(@ground-pink,3);
+
+  .defaultColors();
+  .groundColor();
+}
+
+.ground-grass {
+  @main: @ground-grass;
+  @dark-main: darken(@ground-grass,3);
+
+  .defaultColors();
+  .groundColor();
+}
+
+.ground-personal {
+  @main: @ground-personal;
+  @dark-main: darken(@ground-personal,3);
+
+  .defaultColors();
+  .groundColor();
+}
+
+
+/***************body background*********************/
+
+
+/********different ground colors in environment********/
+.environment-menu li{
+  &.ground-blue .ground-color-indicator {    background: @ground-blue}
+  &.ground-green .ground-color-indicator {   background: @ground-green}
+  &.ground-aqua .ground-color-indicator {    background: @ground-aqua}
+  &.ground-violet .ground-color-indicator {  background: @ground-violet}
+  &.ground-orange .ground-color-indicator {  background: @ground-orange}
+  &.ground-pink .ground-color-indicator {    background: @ground-pink}
+  &.ground-grass .ground-color-indicator {   background: @ground-grass}
+  &.ground-personal .ground-color-indicator {background: @ground-personal}
+
+  &.ground-blue .notification-indicator.new { background-color: @ground-blue;}
+  &.ground-green .notification-indicator.new { background-color: @ground-green;}
+  &.ground-aqua .notification-indicator.new { background-color: @ground-aqua;}
+  &.ground-violet .notification-indicator.new { background-color: @ground-violet;}
+  &.ground-orange .notification-indicator.new { background-color: @ground-orange;}
+  &.ground-pink .notification-indicator.new { background-color: @ground-pink;}
+  &.ground-grass .notification-indicator.new { background-color: @ground-grass;}
+  &.ground-personal .notification-indicator.new { background-color: @ground-personal;}
+
+  &.ground-blue .tag-icon.active { color: @ground-blue;}
+  &.ground-green .tag-icon.active {color: @ground-green;}
+  &.ground-aqua .tag-icon.active { color: @ground-aqua;}
+  &.ground-violet .tag-icon.active { color: @ground-violet;}
+  &.ground-orange .tag-icon.active { color: @ground-orange;}
+  &.ground-pink .tag-icon.active { color: @ground-pink;}
+  &.ground-grass .tag-icon.active { color: @ground-grass;}
+  &.ground-personal .tag-icon.active { color: @ground-personal;}
+}
+
+.grid-box-icon-container {
+  &.ground-blue .item-icon-letter{ color: @ground-blue}
+  &.ground-green .item-icon-letter{ color: @ground-green}
+  &.ground-aqua .item-icon-letter{ color: @ground-aqua}
+  &.ground-violet .item-icon-letter{ color: @ground-violet}
+  &.ground-orange .item-icon-letter{ color: @ground-orange}
+  &.ground-pink .item-icon-letter{color: @ground-pink}
+  &.ground-grass .item-icon-letter{color: @ground-grass}
+  &.ground-personal .item-icon-letter{color: @ground-personal}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

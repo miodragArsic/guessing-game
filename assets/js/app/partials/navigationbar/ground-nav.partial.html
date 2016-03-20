@@ -1,0 +1,28 @@
+<ul>
+    <li>
+        <a class="sl-menu" href="" state-control-button identifier="ground-menu-state-control" tooltips tooltip-template="Ground menu" tooltip-side="right">
+            <span>Ground menu</span>
+        </a>
+
+    </li>
+    <li>
+        <a class="sl-devices-fill" menu-item ui-sref="main.groundDevices({id: vm.groundContext.current.id})" menu-path="devices" tooltips tooltip-template="Ground devices" tooltip-side="right">
+            <span>Ground devices</span>
+        </a>
+    </li>
+    <li>
+        <a class="sl-gateway-fill" menu-item ui-sref="main.groundGateways({id: vm.groundContext.current.id})" menu-path="gateways" ng-if="vm.groundContext.current.gatewayCount > 0" tooltips tooltip-template="Ground gateways" tooltip-side="right">
+            <span>Ground gateways</span>
+        </a>
+    </li>
+    <li>
+        <a class="sl-members-fill" menu-item ui-sref="main.groundMembers({id: vm.groundContext.current.id})" menu-path="members" tooltips tooltip-template="Ground members" tooltip-side="right">
+            <span>Ground members</span>
+        </a>
+    </li>
+    <li>
+        <a class="sl-sl-activity-fill" href="" state-control-button identifier="ground-activity" tooltips tooltip-template="Ground activity" tooltip-side="right">
+            <span>Ground activity</span>
+        </a>
+    </li>
+</ul>

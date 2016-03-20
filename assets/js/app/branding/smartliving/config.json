@@ -1,0 +1,9 @@
+ {
+     "favicon": "assets/img/brand/smartliving/favicon.png",
+     "logoIcon": "assets/img/brand/smartliving/sl-logo.svg",
+     "logoType": "assets/img/brand/smartliving/sl-typo.svg",
+     "logoAlt": "smartliving",
+     "brandColor": "#2670e0",
+     "name": "SmartLiving",
+     "loginBgClass":"login-bg"
+ }

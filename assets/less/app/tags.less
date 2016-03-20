@@ -1,0 +1,135 @@
+.tag {
+  font-weight: 700;
+  border-radius: 2px;
+  padding: 3px 5px;
+  margin-left: 5px;
+  font-size: 12px;
+  line-height: 1.1em;
+  display: inline-block;
+  vertical-align: middle;
+  text-transform: none;
+  i {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 5px;
+    font-size: 12pt;
+  }
+}
+.tag.big {
+  padding: 5px 8px;
+  font-size: 12px;
+}
+.tag.btn {
+  cursor: pointer;
+  &:hover {
+    opacity: 0.85;
+  }
+}
+
+/////////////////////////////////
+
+.tag-sensor {
+  background-color: transparent;
+  color: @text-color;
+  border: solid 1px @green;
+  .tag;
+}
+.tag-actuator {
+  background-color: transparent;
+  color: @text-color;
+  border: solid 1px @blue;
+  .tag;
+}
+.tag-virtual {
+  background-color: transparent;
+  color: @text-color;
+  border: solid 1px @lighter-text;
+  .tag;
+}
+.tag-config {
+  background-color: transparent;
+  color: @text-color;
+  border: solid 1px @orange;
+  .tag;
+}
+
+/////////////////////////////////
+
+.tag-gray {
+  background-color: rgb(77, 85, 93);
+  color: @white !important;
+  .tag;
+}
+.tag-light-gray {
+  background-color: rgba(0,0,0,0.08);
+  color: @text-color !important;
+  .tag;
+}
+.tag-red {
+  background-color: @red;
+  color: @white !important;
+  .tag;
+}
+.tag-green {
+  background-color: @green;
+  color: @white !important;
+  .tag;
+}
+.tag-blue {
+  background-color: @main;
+  color: @white !important;
+  .tag;
+}
+.tag-yellow {
+  background-color:@yellow;
+  color: @white !important;
+  .tag;
+}
+
+.tag-main {
+  background-color:@main;
+  color: @white !important;
+  .tag;
+}
+
+.tag-main-outline {
+  background-color:transparent;
+  color: @main;
+  border: solid 1px @main;
+  .tag;
+}
+
+.tag-gray-outline {
+  background-color: transparent;
+  border: solid 1px lighten(@text-color, 30);
+  color: @text-color !important;
+  .tag;
+}
+
+.tag-white-outline {
+  background-color: transparent;
+  border: solid 1px rgba(255,255,255,0.3);
+  color: @white !important;
+  .tag;
+}
+
+//////////////////////////////////
+.state-time-tag{
+    background-color: transparent;
+    border: solid 1px @light-gray;
+    color: lighten(@text-color, 30) !important;
+    .tag;
+
+  &:empty{
+    display: none;
+  }
+
+  &:before{
+    content:'\e64e';
+    font-family:'smartliving';
+    font-size: 14px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 4px;
+  }
+}

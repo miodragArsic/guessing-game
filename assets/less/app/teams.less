@@ -1,0 +1,180 @@
+@team-icon-padding: 10px;
+@team-icon-width: @place-container-height - 2 * @team-icon-padding;
+@team-header-button-width: 48px;
+
+form.no-teams {
+  background-image: url("../img/no-teams-bg.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 266px 175px;
+}
+
+.team-name-input {
+  margin-top: 210px !important;
+}
+
+.team-name {
+  float: left;
+  margin-left: @team-icon-padding;
+}
+
+.page-item-container.teams {
+  padding-left: 0;
+}
+
+.team-icon {
+  width: @team-icon-width;
+  color: @white;
+  margin-top: @team-icon-padding;
+  margin-left: @team-icon-padding;
+  line-height: @team-icon-width;
+  font-weight: normal;
+  float: left;
+  height: @team-icon-width;
+  border-radius: @team-icon-width;
+  background: @light-gray;
+  text-align: center;
+  font-size: @team-icon-width - 2 * @team-icon-padding;
+}
+
+.team-icon-header {
+  height: @page-header-height - @page-header-icon-margin;
+  width: @page-header-height - @page-header-icon-margin;
+  border-radius: @page-header-height - @page-header-icon-margin;
+  background: @light-gray;
+  position: relative;
+  font-weight: 700;
+  float: left;
+  top: @page-header-icon-margin / 2;
+  left: @page-header-icon-margin / 2;
+  text-align: center;
+  line-height: @page-header-height - @page-header-icon-margin;
+  color: @white;
+  font-size: 120px;
+  display: inline-block;
+  margin-right: 5%;
+}
+
+.team-icon span {
+  text-shadow: 0px 1px 0px rgba(255, 255, 255, 1);
+}
+
+.teams-header {
+  font-size: 36px;
+  font-weight: 100;
+  color: #333;
+  position: relative;
+}
+
+.team-header-button-holder {
+  position: relative;
+}
+
+
+.teams-header-add-button {
+  width: @team-header-button-width;
+  height: @team-header-button-width;
+  border-radius: @team-header-button-width;
+  background-color: @main;
+  position: absolute;
+  top: 0;
+  right: 0px;
+  text-align: right;
+  padding-right: @team-header-button-width / 4;
+  line-height: @team-header-button-width;
+  font-size: 24px;
+  color: @white;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+}
+
+.teams-header-add-button:hover {
+  -moz-box-shadow: 0px 0px 20px 10px rgba(0,0,0,0.15);
+  -webkit-box-shadow: 0px 0px 20px 10px rgba(0,0,0,0.15);
+  -ms-box-shadow: 0px 0px 20px 10px rgba(0,0,0,0.15);
+  box-shadow: 0px 0px 20px 10px rgba(0,0,0,0.15);
+}
+
+.teams-header-add-button-active:hover {
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  -ms-box-shadow: none;
+  box-shadow: none;
+}
+
+.teams-header-add-button-active {
+  width: 400px;
+  border-radius: 0px;
+  background-color: transparent;
+  color: @dark-gray;
+}
+
+.teams-header-container {
+  width: 100%;
+  height: @team-header-button-width;
+  position: relative;
+}
+
+inline-control.teams-header-add-button input {
+  width: 300px;
+  height: 100%;
+  float: left;
+  font-size: 18px;
+  color: @dark-gray;
+  line-height: 100%;
+}
+
+inline-control.teams-header-add-button button {
+  width: 50px;
+  height: 100%;
+  float: left;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  background-color: @main;
+  color: #fff;
+  border: none;
+}
+
+
+.team-header {
+  width: @page-header-width;
+  height: @page-header-height;
+  background-color: @page-header-background-color;
+  border-radius: @page-header-border-radius;
+  // line-height: @page-header-height;
+  color: #fff;
+  font-size: @page-header-height / 8;
+  background-color: @white !important;
+}
+
+.header-team-name {
+  max-width: calc(~"100% - 415px");
+  color: darken(@gray, 50);
+  float: left;
+  padding-top: @page-header-height / 2 - @page-header-icon-margin / 2;
+}
+
+.sub-name {
+  font-size: 14px;
+  padding-left: 15px;
+}
+
+inline-control.teams-header-add-button input {
+  padding-left: 10px;
+}
+
+.environment-team-icon-text {
+  color: lighten(@text-color, 40);
+  font-weight: 300;
+}
+
+.environment-team-icon-text.colored {
+  color: @white;
+}
+
+.invitation-error {
+  float: right;
+  color: @dark-gray;
+  font-size: 12px;
+}

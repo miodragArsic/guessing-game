@@ -1,0 +1,24 @@
+<header class="onboarding-header" ng-class="{ open: !vm.intro.headerClosed }">
+    <div class="onboarding-header-holder">
+        <a class="board-link docs" href="http://docs.smartliving.io" target="_blank" title="Visit documentation website">
+            <img src="assets/img/board-img-02.svg" alt=""/>
+            <p>Check out Docs</p>
+        </a>
+        <a class="board-link api" href="http://docs.smartliving.io/api" target="_blank" title="Explore API documentation">
+            <img src="assets/img/board-img-03.svg" alt=""/>
+            <p>API reference</p>
+        </a>
+        <a class="board-link ios" href="https://itunes.apple.com/us/app/smartliving-mobile/id1056572958?mt=8" target="_blank" title="Download SmartLiving Mobile app from App Store">
+            <img src="assets/img/board-img-04.svg" alt=""/>
+            <p>Download from App Store</p>
+        </a>
+        <a class="board-link android" href="https://play.google.com/store/apps/details?id=com.allthingstalk.SmartLivingMakerApprentice&hl=en" target="_blank" title="Download SmartLiving Mobile app from Google Play">
+            <img src="assets/img/board-img-05.svg" alt=""/>
+            <p>Download from Google Play</p>
+        </a>
+    </div>
+    <div class="toggle-onboarding-header" ng-click="vm.intro.toggleHeader()">
+        <i class="sl-sl-corner-up" ng-if="!vm.intro.headerClosed" title="hide header"></i>
+        <i class="sl-sl-corner-down" ng-if="vm.intro.headerClosed" title="show header"></i>
+    </div>
+</header>

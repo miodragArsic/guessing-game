@@ -1,0 +1,11 @@
+<input class="map-search" type="hidden" ng-show="mapReady"/>
+
+<div class="map-canvas"></div>
+<div class="map-circle" ng-show="mapReady">
+	<div class="map-pin"></div>
+</div>
+
+<button class="page-button no-border sl-sl-plus map-zoom-in" ng-click="zoomIn()"
+        ng-show="mapReady"></button>
+<button class="page-button no-border sl-sl-minus map-zoom-out" ng-click="zoomOut()"
+        ng-show="mapReady"></button>

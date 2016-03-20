@@ -1,0 +1,65 @@
+<section class="details-part">
+    <state-control class="accordion step-accordion" modifier-class="active">
+        <h2 state-control-type="trigger"><span>1.</span>Claim your LoRa™ device <a class="link" href="http://support.sodaq.com/mbili" target="_blank"> Learn more </a></h2>
+        <article state-control-type="container">
+            <ol>
+                <li>Set up an account as <a href="https://devs.enabling.be/dashboard" target="_blank">Proximus Developer</a></li>
+                <li>Claim your device with the <b>DEVEUI</b> code on the box</li>
+            </ol>
+        </article>
+    </state-control>
+</section>
+
+<section class="details-part">
+    <state-control class="accordion step-accordion" modifier-class="active">
+        <h2 state-control-type="trigger"><span>2.</span> Prepare the environment <a class="link" href="http://support.sodaq.com/mbili" target="_blank">Learn more</a></h2>
+        <article state-control-type="container">
+            <ol>
+                <li>Install the Arduino IDE and SODAQ Mbili</li>
+            </ol>
+        </article>
+    </state-control>
+</section>
+
+<section class="details-part">
+    <state-control class="accordion step-accordion" modifier-class="active">
+        <h2 state-control-type="trigger"><span>3.</span> Download and install libraries <a class="link" href="http://docs.smartliving.io/kits/lora/#allthingstalk-lora-library" target="_blank">Learn more</a></h2>
+        <article state-control-type="container">
+            <ol>
+                <li>Download the AllThingsTalk LoRa™ client library</li>
+                <li>In the <pre>ATT_LoRa_IOT/examples</pre> folder you will find
+                    <ol>
+                        <li>basic demo.ino sketch in <b>demo</b></li>
+                        <li>example sketch for every sensor in <b>sensor tests</b></li>
+                        <li>sketches for 3 experiments in <b>experiments</b></li>
+                    </ol>
+                </li>
+                <li>Unzip libraries</li>
+                <li>Open Arduino IDE</li>
+                <li>Go to <pre>sketch > Include library > Add .ZIP library</pre></li>
+                <li>browse to the <b>arduino-LoRa-master</b> folder, select it and import</li>
+                <li>Repeat this process to add all needed libraries.</li>
+            </ol>
+        </article>
+    </state-control>
+    <article class="spacing-y">
+        <a class="main-button" href="https://github.com/allthingstalk/arduino-lora/archive/master.zip">Download</a>
+    </article>
+</section>
+
+<section class="details-part">
+    <state-control class="accordion step-accordion" modifier-class="active">
+        <h2 state-control-type="trigger"><span>4.</span> Get keys</h2>
+        <article state-control-type="container">
+            <p>Include <b>keys.h</b> in your project folder, with following code</p>
+        </article>
+    </state-control>
+    <article class="spacing-y">
+        <code class="code-block">
+<pre>
+{{vm.model.keysText}}
+</pre>
+            <a ng-if="vm.model.isDownloadSupported" class="download" ng-click="vm.model.downloadKeysFile()">download file<i class="sl-arrow-down"></i></a>
+        </code>
+    </article>
+</section>

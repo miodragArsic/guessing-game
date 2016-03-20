@@ -1,0 +1,33 @@
+<div class="modal-confirm-delete">
+    <div class="modal-header">
+        <!--<h3 class="modal-title"></h3>-->
+    </div>
+    <div class="modal-scroll">
+        <div class="modal-row center">
+            <h2>Are you sure?</h2>
+
+            <!--shown when deleting DEVICE-->
+            <p class="alert-msg danger" ng-if="vm.itemModel.hasOwnProperty('device')">
+               Deleting <b>{{vm.itemModel.device.title}}</b> device <b>cannot</b> be undone.
+               It will delete all device assets and deactivate associated rules.
+            </p>
+
+            <!--shown when deleting GATEWAY-->
+            <p class="alert-msg danger" ng-if="vm.itemModel.hasOwnProperty('gateway')">
+                Deleting <b>{{vm.itemModel.gateway.title}}</b> gateway <b>cannot</b> be undone.
+                It will delete all devices in gateway's network, their assets and deactivate associated rules.
+            </p>
+
+        </div>
+        <div class="modal-row">
+            <div class="checkbox" ng-click="vm.selectModalDissmisal()">
+                <input type="checkbox" id="dismiss-modal-forever" ng-model="vm.selection" tabindex="0">
+                <div class="indicator"></div>
+                <label class="label" for="dismiss-modal-forever">Don't show this message again</label>
+            </div>
+        </div>
+        <div class="modal-row center" >
+            <button class="main-button" ng-click="vm.confirmItemDelete(vm.model)">Delete</button>
+        </div>
+    </div>
+</div>

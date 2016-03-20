@@ -1,0 +1,215 @@
+@ground-box-height: 180px;
+@ground-box-icon-height: 200px;
+
+.ground-boxes{
+  height: auto !important;
+  [class^="ground-box"], [class*="ground-box"] {
+    margin-bottom: @grid-box-spacing;
+  }
+}
+
+///////////////////////////////////////////////////////////
+
+.box-holder{
+  z-index: 1;
+  .box-style;
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+
+}
+
+.ground-box .tag{
+  position: absolute;
+  margin: 0;
+  bottom: 5px;
+  left: 5px;
+
+}
+
+.ground-box-create .box-holder {
+  background: @light-box;
+  overflow: hidden;
+  padding: 20px;
+  height: @ground-box-height;
+  .add-control-step .enrolment-icon{
+    font-size: 130px;
+    line-height: 100px;
+    margin: 0;
+  }
+  .add-control-step h2{
+    margin: 0.5em 0;
+  }
+  .add-control-step p{
+    margin: 0.3em 0;
+  }
+}
+
+//////////////////////////////////////////////////
+
+.ground-box{
+  .clearfix;
+}
+
+.box-content, .box-header{
+  overflow: hidden;
+  display: table-cell;
+  vertical-align: middle;
+}
+.box-header{
+  padding: 0;
+  width: @ground-box-icon-height;
+  position: relative;
+  text-align: center;
+  a.box-link{
+    display: block;
+    &:hover{
+      .box-text h1{
+        color: @main;
+      }
+
+    }
+  }
+  .deleted-text, .close, .box-icon-deleted{
+    display: none;
+  }
+  .close {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-size: 18pt;
+    z-index: 1;
+    cursor: pointer;
+  }
+  .icon-line{
+    position: absolute;
+    padding: 10px 0;
+    top: 0;
+    left: 0;
+    height: 100%;
+    overflow: hidden;
+    i{
+      font-size: 16pt;
+      line-height: 16pt;
+      margin: 5px 15px;
+      display: block;
+      color: lighten(@text-color,30);
+      cursor: help;
+      &.active{
+        color: @main;
+      }
+    }
+  }
+  .box-icon, .box-icon-deleted{
+    font-size: 60px;
+    font-weight: 400;
+    color: @main;
+  }
+}
+
+.box-text > *{
+  color: @text-color;
+  margin: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.box-text h1{
+  font-size: 16pt;
+  line-height: 18pt;
+  font-weight: 600;
+}
+
+.box-content{
+  background: @light-box;
+  padding: 20px;
+  width: 100%;
+
+  .ground-info{
+    margin-top: @content-padding;
+    opacity: 0.7;
+    li{
+      line-height: 30px;
+    }
+  }
+}
+
+
+
+
+.ground-box.details-shown{
+  .box-holder{
+    box-shadow: none;
+  }
+}
+
+////////////////////////////////////////////////
+
+.ground-box.this-box{
+  .box-header{
+    width: @ground-box-icon-height*1.2;
+  }
+  .grid-box-back{
+    margin-bottom: 10px;
+  }
+  margin-bottom: @grid-box-spacing;
+
+  .grid-box-details {
+    margin: 0
+  }
+  .box-content{
+    padding: 30px;
+  }
+  .box-text h1{
+    font-size: 30px;
+    font-weight: 900;
+  }
+}
+
+
+////////////////////////////////////////////////
+
+.ground-box.deleted-ground{
+  pointer-events: none;
+
+  .deleted-text, .close{
+    display: block;
+  }
+
+  .close{
+    pointer-events: auto;
+    color: @red;
+  }
+
+  .box-header{
+    height: @ground-box-height;
+    padding: 70px 20px;
+    .box-icon{
+      display: none;
+    }
+    .box-icon-deleted{
+      display: block;
+      color: @red;
+    }
+  }
+  .box-content,
+  .grid-box-details-toggle,
+  .grid-box-details,
+  .icon-line{
+    display: none;
+  }
+
+}
+
+/**********************************************************************/
+
+@media screen and(max-width: 700px) {
+  .ground-boxes{
+    [class^="ground-box"], [class*="ground-box"] {
+        width: auto;
+        display: block;
+        margin-right: 0;
+    }
+  }
+}
+

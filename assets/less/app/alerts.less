@@ -1,0 +1,113 @@
+.alert-msg {
+  position: relative;
+  background: @light-light-gray;
+  color: @text-color;
+  padding: 15px 20px;
+  border-radius: 3px;
+  text-align: left;
+  line-height: 1.3em;
+  border: solid 1px @light-gray;
+  .basicTransition;
+
+  &[ng-click]{
+    background: @white;
+    &:hover{
+      background: @light-light-gray;
+    }
+  }
+  &.danger{
+    background: lighten(@alert-danger,@lighten-percent);
+    border-color: @alert-danger
+  }
+  &.info{
+    background: lighten(@alert-info,@lighten-percent);
+    border-color: @alert-info
+  }
+  &.warning{
+    background: lighten(@alert-warning,@lighten-percent);
+    border-color: @alert-warning
+  }
+  &.success {
+    background: lighten(@alert-success,@lighten-percent);
+    border-color: @alert-success
+  }
+  &.offer {
+    background: lighten(@alert-offer,@lighten-percent);
+    border-color: @alert-offer
+  }
+
+  &.main {
+    background: @lightest-box;
+    border-color: @main
+  }
+}
+
+.alert-msg-calm {
+  position: relative;
+  background: @light-box;
+  color: @text-color;
+  padding: @content-padding @content-padding @content-padding @content-padding*4;
+  text-align: left;
+  line-height: 1.3em;
+
+  h1,h2,h3,h4,h5,h6{
+    margin: 0;
+  }
+  p{
+    margin: 0.3em 0;
+  }
+
+  &:after {
+    content:'\e644';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    margin-top: -30px;
+    width: @content-padding*4;
+    height: 30px;
+    font-family: 'smartliving';
+    font-size: 60px;
+    padding: 15px;
+    text-align: center;
+    color: rgba(0,0,0,0.2);
+    background: @light-box;
+  }
+
+  &.danger:after{ content: '\e646';}
+  &.info:after{ content: '\e645'; }
+  &.warning:after{ content: '\e646';}
+  &.success:after { content: '\e647';}
+
+
+  .main-button.light-btn{
+    color: @text-color !important;
+  }
+
+  .alert-msg-btn{
+    position: absolute;
+    right: @content-padding;
+    top: 50%;
+    margin-top: -20px;
+  }
+  .alert-msg-btn.small-btn{
+    margin-top: -15px;
+  }
+}
+
+/*********************************************************************/
+@media screen and (max-width: 900px){
+  .alert-msg-calm {
+    padding: @content-padding @content-padding @content-padding @content-padding*4;
+    .alert-msg-btn{
+      position: relative;
+      right: inherit;
+      top: inherit;
+      margin-top: 10px;
+    }
+    .alert-msg-btn.small-btn{
+      margin-top: 10px;
+    }
+  }
+
+
+}

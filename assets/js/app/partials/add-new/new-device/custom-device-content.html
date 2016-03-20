@@ -1,0 +1,19 @@
+<form ng-submit="vm.createDevice(deviceName, 'custom')">
+    <div class="create-new-control block tl">
+        <h3>Make a new device</h3>
+
+        <p>After creation, device will appear in this ground.</p>
+
+        <div class="single-input-control">
+            <label>Name</label>
+            <input class="teams-header-input" type="text" ng-model="deviceName" ng-change="deviceChangeName()"
+                   placeholder="" tabindex="0"/>
+            <button angular-ripple id="submit-name"
+                    ng-class="{ 'disabled-btn': deviceName == null || deviceName == '' }" type="submit"><i
+                    class="sl-arrow_forward"></i></button>
+        </div>
+        <div class="balloon" ng-show="deviceError">
+            <span ng-bind="deviceError"></span>
+        </div>
+    </div>
+</form>

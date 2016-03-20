@@ -1,0 +1,24 @@
+<h3>{{sectionName}}</h3>
+<!--<p><b>{{ getHeaderText()}}</b> {{getDetails()}}</p>-->
+<!--1-->
+<div class="rule-description" >
+<span ng-repeat="section in sectionDataApplied">
+    <span class="complex" ng-if="section.sectionOperand">{{section.sectionOperand}}</span>
+    <article>
+        <span class="item">{{getHeaderText(section)}}</span>
+        <span class="asset">{{getLeftName(section)}}</span>
+    </article>
+    <span class="comparator">{{getComparatorName(section)}}</span>
+    <span class="value">{{getValue(section)}}</span>
+    <!--   <article>
+        <span class="item">Controls preview</span>
+        <span class="asset">label</span>
+    </article>
+    <span class="comparator">is equal to</span>
+    <article>
+        <span class="item">Edison device</span>
+        <span class="asset">string</span>
+    </article>
+    <span class="item">...</span> -->
+    </span>
+</div>

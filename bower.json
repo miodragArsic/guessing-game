@@ -1,0 +1,23 @@
+{
+  "name": "SmartLiving",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Miodrag Arsic <miodrag.arsic23@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/allthingstalk/smartliving",
+  "moduleType": [],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "ngtouch": "~1.0.1",
+    "angular-intercom": "~2.1.1"
+  }
+}

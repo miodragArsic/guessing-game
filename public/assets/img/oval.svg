@@ -1,0 +1,19 @@
+<!-- By Sam Herbert (@sherb), for everyone. More @ http://goo.gl/7AJzbL -->
+<svg width="130" height="130" viewBox="0 0 130 130" xmlns="http://www.w3.org/2000/svg" stroke="#56646d">
+    <g fill="none" fill-rule="evenodd">
+        <g transform="translate(1 1)" stroke-width="9">
+            <circle cx="65" cy="65" r="59.5" stroke="#56646d" stroke-opacity=".15" />
+            <path stroke-linecap="round" stroke-linejoin="round" d="M65,5.5c13.151,0,25.306,4.267,35.155,11.491">
+                <animateTransform
+                    attributeName="transform"
+                    type="rotate"
+                    from="0 65 65"
+                    to="360 65 65"
+                    dur="2s"
+                    calcMode="linear"
+                    keyTimes="0;1"
+                    repeatCount="indefinite"/>
+            </path>
+        </g>
+    </g>
+</svg>

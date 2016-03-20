@@ -1,0 +1,13 @@
+<section class="global-container" full-height>
+    <div class="grid-col-container" ng-controller="YourDevicesController as vm">
+        <div class="grid-col">
+            <list-header view-model="vm.model.headerModel">
+                <button ng-if="vm.model.callToAction" class="main-button light-btn" ng-click="vm.goToEnvironment()">Go to Environment</button>
+            </list-header>
+                <section class="box-wrap relative" ng-repeat="device in vm.model.devices | orderBy: 'groundId' :true track by device.itemId">
+                    <list-item view-model="device" ground-tag="device.groundTitle">
+                    </list-item>
+                </section>
+        </div>
+    </div>
+</section>

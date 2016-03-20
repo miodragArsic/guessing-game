@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 17.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="300px" height="150px" viewBox="0 0 300 150" enable-background="new 0 0 300 150" xml:space="preserve">
+<g>
+	<circle fill="#EDEDED" cx="225" cy="75" r="75"/>
+</g>
+<circle fill="#4BAA88" cx="225" cy="75" r="56.826"/>
+<circle fill="#20D298" cx="225" cy="75" r="53.859"/>
+<circle fill="#25E8A2" cx="225" cy="75" r="48.083"/>
+<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="255.5375" y1="45.1032" x2="223.5904" y2="77.0503">
+	<stop  offset="0.1746" style="stop-color:#FFFFFF"/>
+	<stop  offset="0.8026" style="stop-color:#FFFFFF;stop-opacity:0"/>
+</linearGradient>
+<circle opacity="0.4" fill="url(#SVGID_1_)" enable-background="new    " cx="240.447" cy="60.193" r="20.723"/>
+<g>
+	<circle fill="#EDEDED" cx="75" cy="75" r="75"/>
+</g>
+<circle fill="#35363A" cx="75" cy="75" r="53.859"/>
+<circle fill="#4F4F51" cx="75" cy="75" r="48.083"/>
+<linearGradient id="SVGID_2_" gradientUnits="userSpaceOnUse" x1="105.5375" y1="45.1032" x2="73.5904" y2="77.0503">
+	<stop  offset="0.1746" style="stop-color:#FFFFFF"/>
+	<stop  offset="0.8026" style="stop-color:#FFFFFF;stop-opacity:0"/>
+</linearGradient>
+<circle opacity="0.2" fill="url(#SVGID_2_)" enable-background="new    " cx="90.447" cy="60.193" r="20.723"/>
+<circle opacity="0.3" fill="#35363A" enable-background="new    " cx="75" cy="75" r="56.826"/>
+</svg>

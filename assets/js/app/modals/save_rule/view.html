@@ -1,0 +1,29 @@
+<div class="modal-rule-options">
+    <div class="modal-header">
+        <h3 class="modal-title">Saving Rule</h3>
+    </div>
+    <div class="modal-scroll">
+        <div class="modal-row">
+            <ul class="step-tabs">
+                <li>
+                    <sl-rule-section-preview section-name="When" section-data="stateData.when"></sl-rule-section-preview>
+                </li>
+
+                <li>
+                    <sl-rule-section-preview section-name="Then" section-data="stateData.then"></sl-rule-section-preview>
+                </li>
+
+
+                <li ng-if="isSectionReady('else')">
+                    <sl-rule-section-preview section-name="Else" section-data="stateData.else"></sl-rule-section-preview>
+                </li>
+            </ul>
+        </div>
+        <div class="modal-row">
+            <div class="single-input-control large">
+                <input class="teams-header-input" type="text" ng-model="stateData.ruleName" placeholder="Enter rule name" test-id = "ruleName"/>
+                <button id="submit-name" type="button" ng-click="save()"  test-id = "saveRule" class="green-btn"><hide class="mob-hidden">Save and Start</hide><i class="sl-floppy desk-hidden"></i></button>
+            </div>
+        </div>
+    </div>
+</div>

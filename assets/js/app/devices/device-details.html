@@ -1,0 +1,93 @@
+<state-control modifier-class="active" identifier="device-details" state="vm.isOpen">
+    <section state-control-type="container" class="details-drawer-container">
+        <div state-control-type="close" class="details-drawer-overlay"></div>
+        <section class="details-drawer">
+            <div class="modal-close sl-navigate_next" state-control-type="close"></div>
+            <!--tabs-->
+            <sl-tabs class="details-tabs">
+                <sl-tab heading="Settings" name="kit" order="1">
+                    <!--content-->
+                    <div class="details-content">
+                        <section class="details-part" permission="device-save">
+                            <inline-edit value="vm.model.editDeviceModel.title" confirm-action="vm.model.updateTitle()" is-enabled="$root.hasPermission('device-save')"></inline-edit>
+                            <div class="inline-edit-textarea" permission="device-save">
+                                <flex-textarea data="vm.model.editDeviceModel.description" saved="vm.model.editDeviceModel.saved">
+                                    <a href="" class="inline-edit-rename-button sl-sl-ok-bold" ng-click="vm.model.updateDescription()"></a>
+                                    <div class="inline-edit-indicator sl-format_align_left"></div>
+                                    <small>Maximum 500 characters</small>
+                                </flex-textarea>
+                            </div>
+                            <small permission="device-save">*Writing in MARKDOWN is supported. See full <a href="http://daringfireball.net/projects/markdown/syntax#link" target="_blank">syntax list</a>.</small>
+                        </section>
+                        <section class="details-part" permission="device-delete">
+                            <ul class="ground-actions">
+                                <li permission="ground-delete({groundId:vm.model.ground.id})" ng-if="vm.model.ground.visibility !== 'personal'">
+                                    <a>
+                                        <inline-control first-state="inline-control-delete" second-state="inline-control-delete-active" confirm-element-id="inline-control-confirm" confirm-action="vm.openDeleteDeviceModal()">
+                                            <i class="sl-sl-delete"></i>
+                                            <article class="inline-confirm">
+                                                <div class="inline-control-message">Delete?</div>
+                                                <div class="inline-control-no-button">No</div>
+                                                <div class="inline-control-yes-button" id="inline-control-confirm">Yes</div>
+                                            </article>
+                                            <span>Delete this device</span>
+                                        </inline-control>
+                                    </a>
+                                </li>
+                            </ul>
+                        </section>
+                        <section class="details-part">
+                            <table class="credentials-table">
+                                <tr>
+                                    <td>Device id:</td>
+                                    <td>{{vm.model.device.id}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Device name:</td>
+                                    <td>{{vm.model.device.name}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Client id:</td>
+                                    <td>{{vm.client.clientId}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Client key:</td>
+                                    <td>{{vm.client.clientKey}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Ticket:</td>
+                                    <td>{{vm.model.device.authorizations[0]}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Gateway id:</td>
+                                    <td>{{vm.model.device.gatewayId}}</td>
+                                </tr>
+                            </table>
+                        </section>
+                        <section class="details-part" permission="device-save">
+                            <h4 class="details-part-caption">Activity Log</h4>
+                            <div class="create-new-control">
+                                <div class="button-group table-group">
+                                    <a href="#" class="black" ng-click="vm.model.enableActivity()" ng-class="{ 'button-group-selected': vm.model.device.activityEnabled }">
+                                        <span>Enabled</span>
+                                    </a>
+                                    <a href="#" class="black" ng-click="vm.model.disableActivity()" ng-class="{ 'button-group-selected': !vm.model.device.activityEnabled }">
+                                        <span>Disabled</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                    <!--content-->
+                </sl-tab>
+                <sl-tab heading="Setup" name="custom" order="2">
+                    <div class="details-content">
+                        <!--Device Steps-->
+                        <ng-include src="vm.model.stepsUrl" onload="deviceModel = vm.model.device"></ng-include>
+                    </div>
+                </sl-tab>
+            </sl-tabs>
+            <!--tabs-->
+        </section>
+    </section>
+</state-control>

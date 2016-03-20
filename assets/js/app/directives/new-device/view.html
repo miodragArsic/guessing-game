@@ -1,0 +1,22 @@
+<form ng-submit="deviceAdd()">
+    <div class="create-new-control block">
+        <div class="button-group add-control-btn-group">
+            <a href="" ng-click="setDeviceType(dType.type)" ng-class="{ 'button-group-selected': isActiveDeviceType(dType.type) }" ng-repeat="dType in deviceTypes" tabindex="0">
+                <i class="btn-icon" ng-class="dType.icon"></i>
+                <i class="sl-sl-ok-bold active-btn" ng-show="isActiveDeviceType(dType.type)"></i>
+                <span>{{dType.text}}</span>
+            </a>
+
+        </div>
+        <div class="single-input-control">
+            <label>Name</label>
+            <input class="teams-header-input" type="text" ng-model="deviceName" ng-change="deviceChangeName()" placeholder="" tabindex="0" />
+            <button angular-ripple id="submit-name" ng-class="{ 'disabled-btn': deviceName == null || deviceName == '' }" type="submit"><i class="sl-arrow_forward"></i></button>
+        </div>
+        <div class="balloon" ng-show="deviceError" >
+            <span ng-bind="deviceError"></span>
+        </div>
+    </div>
+</form>
+
+

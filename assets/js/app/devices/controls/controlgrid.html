@@ -1,0 +1,29 @@
+<div class="col-holder">
+    <div ng-repeat="asset in vm.bindableAssets | orderBy: 'createdOn': true track by asset.id" class="col-03 grid-box no-icon-mobile control-widget" ng-class="{new: asset.$isNew == true, deleted:asset._deleted}">
+        <header angular-ripple>
+            <div class="grid-box-full-action" ui-sref="main.asset({id:asset.id})"></div>
+            <div class="grid-box-icon-container" ng-class="asset.getIcon()" ng-if="!asset._deleted"></div>
+            <div class="grid-box-icon-container sl-sl-alert-danger" ng-if="asset._deleted"></div>
+            <div class="grid-box-text">
+                <h1 ui-sref="main.asset({id:asset.id})">{{ asset.title }}
+                <span ng-if="asset._deleted"> has been deleted</span>
+                <span ng-if="!asset._deleted" ng-class="'tag-'+asset.is"> {{asset.is}}</span>
+                <span class='tag-light-gray' ng-if="!asset._deleted">{{asset.profile.type}}</span>
+            </h1>
+            </div>
+            <div class="grid-box-actions">
+                <a ng-if="asset._deleted" class="grid-box-btn sl-sl-close" ng-click="vm.removeAsset(asset.id)"></a>
+                <a ng-if="vm.currentGround" class="grid-box-btn secondary-action" ng-class="{ 'sl-pin-outline':!asset._isPinned, 'sl-pin visible':asset._isPinned }" title="{{ asset._isPinned? 'Pinned to '+ vm.currentGround.title +' board':'Pin to '+ vm.currentGround.title +' board' }}" ng-click="vm.togglePin(asset)" ng-if="!asset._deleted"></a>
+            </div>
+        </header>
+        <div class="grid-box-controls">
+            <control-handler asset='asset' enabled="$root.hasPermission('device-command')" ng-if="!asset._deleted"> </control-handler>
+            <no-control ng-if="asset._deleted">
+                <div class="deleted-asset-control sl-sl-alert-danger"></div>
+            </no-control>
+        </div>
+        <span class="state-time" from-now="asset.state.at" title="{{asset.state.at}}" ng-if="asset.state.at"></span>
+    </div>
+    <ng-include src="'/assets/js/app/partials/add-new/new-asset/view.html'" class="col-03 add-asset" permission="devices-add" ng-if="vm.model.device.type !== 'quick-demo'"></ng-include>
+    <ng-include src="'/assets/js/app/partials/add-new/new-asset/asset-grid-placeholder.html'" ng-if="vm.model.device.type === 'quick-demo' && vm.bindableAssets.length == 0"></ng-include>
+</div>

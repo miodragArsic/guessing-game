@@ -1,0 +1,14 @@
+<h1 class="caption">{{title}}</h1>
+<ui-select theme="selectize" ng-model="selectedAsset" on-select="onAssetSelected($item,$model)">
+    <ui-select-match placeholder="Select an asset in the list or search...">
+    	{{ selectedAsset.title }}
+    </ui-select-match>
+    <ui-select-choices repeat="asset in assets | filter: $select.search | assetTypeFilter:filterByType">
+        <article>
+            <div class="grid-box-icon-container mob-hidden" ng-class="getIcon(asset.is)"></div>
+            <div class="grid-box-text">
+                <h1 ng-bind-html="asset.title"></h1>
+            </div>
+        </article>
+    </ui-select-choices>
+</ui-select>

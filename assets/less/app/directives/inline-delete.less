@@ -1,0 +1,111 @@
+@inline-delete-size: 250px;
+@inline-delete-size-l: 280px;
+
+.inline-control-delete {
+  text-align: left;
+  display: block;
+  cursor: pointer;
+  position: relative;
+  .clearfix;
+  transition: opacity 0.4s ease;
+
+  >i, >span, > .inline-confirm {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  > i{
+    font-size: 19pt;
+    text-align: center;
+  }
+  .inline-confirm{
+    font-size: 14px;
+    display: inline-block;
+    background: lighten(@light-gray,3);
+    color: lighten(@text-color, 20) !important;
+    position: relative;
+    white-space: nowrap;
+    width: 0;
+    height: @grid-box-btn-size;
+    line-height: @grid-box-btn-size;
+    border-radius: 3px;
+    overflow: hidden;
+    *{
+      display: inline-block;
+      vertical-align: middle;
+    }
+ }
+  .inline-control-message{
+    margin: 0 15px;
+    text-align: left;
+    float: left;
+  }
+  .inline-control-yes-button,
+  .inline-control-no-button{
+    width: @grid-box-btn-size + 5px;
+    height: 100%;
+    float: right;
+    text-align: center;
+  }
+
+  .inline-control-no-button {
+    color: @text-color !important;
+    border: solid 1px transparent;
+  }
+
+  .inline-control-no-button:hover {
+    background: rgba(0,0,0,0.08);
+  }
+
+  .inline-control-yes-button{
+    color: @red !important;
+    border: solid 1px transparent;
+
+  }
+  .inline-control-yes-button:hover{
+    border: solid 1px @red;
+    background-color: @red;
+    color: @white !important;
+  }
+}
+
+/////[STATES]///////////////////////////
+
+.inline-control-delete {
+  .inline-confirm{
+    width: 0;
+    .transition(0.6s);
+    *{
+      opacity: 0;
+      transition: opacity 0.3s 0.4s ease;
+    }
+  }
+
+}
+
+////////////////////////////////////////
+.inline-control-delete-active{
+  > span{
+    display: none !important;
+  }
+
+  .inline-confirm{
+    display: inline-block;
+    width: @inline-delete-size;
+    *{
+      opacity: 1;
+    }
+  }
+}
+
+///////////////////////////////////////
+
+.inline-control-delete.large {
+  .inline-confirm{
+    width: @inline-delete-size-l;
+  }
+}
+
+.inline-control-delete-active.large{
+  width: @inline-delete-size-l + 60px;
+}

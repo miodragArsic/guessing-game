@@ -1,0 +1,49 @@
+<div class="grid-box" ng-class="{
+    'details-shown': viewModel.itemDetailsBoxActive,
+    new: viewModel.info.isNew == true,
+    deleted: viewModel.itemIsDeleted,
+    'no-click': viewModel.clickable == false
+}" angular-ripple>
+
+    <div class="relative" ng-class="[viewModel.titleLetterIconClass, color]">
+        <!--  <indicator class="notification-indicator new" title="you are subscribed for notifications"></indicator> -->
+
+        <div tabindex="0" class="grid-box-full-action" ng-click="viewModel.clickHandler()"></div>
+        <!-- multiple icons -->
+        <div class="grid-box-grouped-icons" ng-if="viewModel.info.multipleIcons && !viewModel.itemIsDeleted">
+            <span ng-repeat="icon in viewModel.itemIcons">
+            <div class="grid-box-icon-container" ng-class="icon.icon" ng-if="icon.icon" ng-click="viewModel.clickHandler()"></div>
+            <i class="rules-arrow sl-sl-corner-right" ng-if="icon.arrow"></i>
+            </span>
+        </div>
+        <!-- single icon -->
+        <div class="grid-box-icon-container" ng-if="!viewModel.info.multipleIcons && !viewModel.itemIsDeleted" ng-class="[viewModel.itemIcon, viewModel.titleLetterIconClass, color]" ng-click="viewModel.clickHandler()">
+            <span ng-if="viewModel.useTitleLetterAsIcon" class="item-icon-letter">{{ viewModel.itemTitle | limitTo : 2 | capitalize }}</span>
+        </div>
+        <!-- if item gets deleted -->
+        <div class="grid-box-icon-container sl-sl-alert-danger" ng-if="viewModel.itemIsDeleted"></div>
+        <!-- box title -->
+        <div class="grid-box-text">
+            <h1 ng-click="viewModel.clickHandler()">{{ viewModel.itemTitle }} <span ng-if="viewModel.itemIsDeleted"> has been deleted</span>
+            <span ng-class="viewModel.tag.tagClass">{{viewModel.tag.tagText}}</span>
+            </h1>
+            <div class="grid-box-icon-bar">
+                <p class="tag-holder" ng-if="groundTag">serving ground <span class="tag-light-gray">{{groundTag}}</span></p>
+                <subscribed-indicator ng-if="viewModel.showSubscribeIndicator" item-id="viewModel.itemId"></subscribed-indicator>
+                <i ng-if="viewModel.notificationsActive" ng-class="{ 'active':viewModel.notificationsActive}" class="tag-icon sl-bell-outline2" title="You will be notified when device changes state"></i>
+                <i class="tag-icon" ng-class="icon.class" ng-attr-title="{{icon.title}}" ng-click="icon.clickHandler()" ng-repeat="icon in viewModel.tagIcons"><span>{{icon.count}}</span></i>
+                <!-- Device active at -->
+                <span ng-if="viewModel.showDeviceStatus" class="state-time-tag" title="{{viewModel.device.lastActiveAt}}" device-status device="viewModel.device"></span>
+            </div>
+        </div>
+        <!-- actions -->
+        <div class="grid-box-actions" ng-transclude></div>
+        <!-- details box -->
+        <div class="grid-box-details-toggle">
+            <a ng-click="viewModel.toggleItemDetailsBox()" class="corner" ng-if="viewModel.hasItemDetails" ng-class="{active: viewModel.itemDetailsBoxActive}"></a>
+        </div>
+    </div>
+</div>
+<div class="grid-box-details" ng-if="viewModel.hasItemDetails" ng-class="{active: viewModel.itemDetailsBoxActive}">
+    <div btf-markdown="viewModel.itemDetails" class="markdown-description"></div>
+</div>

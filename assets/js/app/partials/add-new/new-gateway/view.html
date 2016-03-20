@@ -1,0 +1,12 @@
+<state-control class="add-box" modifier-class="add-box-active" state-morph permission="gateway-claim" modifier-class="active" class="add-control" identifier="add-gateway-2" ng-if="vm.model.currentGroundVisibility !== 'personal'" state="vm.model.isClaimingPopupOpen">
+    <!--trigger-->
+    <div tabindex="0" class="add-box-trigger" state-control-type="trigger">
+        <ng-include src="'/assets/js/app/partials/add-new/new-gateway/trigger.html'"></ng-include>
+    </div>
+    <!--container-->
+    <div state-control-type="container" class="add-box-container">
+        <ng-include src="'/assets/js/app/partials/add-new/new-gateway/content.html'"></ng-include>
+    </div>
+    <div state-control-type="close" class="add-box-overlay"></div>
+    <div state-control-type="morph" class="add-box-morph"></div>
+</state-control>

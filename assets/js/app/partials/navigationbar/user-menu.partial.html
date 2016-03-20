@@ -1,0 +1,46 @@
+<div class="user-action" ng-controller="NavigationController as vm">
+    <state-control modifier-class="active" identifier="user-menu">
+        <div state-control-type="trigger" class="user-area" tabindex="0">
+            <div class="user-id">
+                <div angular-ripple>
+                    <span class="user-area-text">
+                        <b>{{vm.user}}</b>
+                        <small ng-show="vm.showSelectedMenuItem()"> / {{vm.selectedMenuItem}}</small>
+                    </span>
+                </div>
+            </div>
+            <div state-control-type="close" class="overlay"></div>
+        </div>
+        <div state-control-type="container">
+            <div class="scroll-content">
+                <!--Additional menu area-->
+                <section>
+                    <h3 class="top-bar-dropown-caption">Automation</h3>
+                    <ul>
+                        <li angular-ripple> <a ui-sref="main.rules"><i class="sl-sl-create-pen"></i> Your rules</a></li>
+                    </ul>
+                </section>
+                <section>
+                    <h3 class="top-bar-dropown-caption">Devices</h3>
+                    <ul>
+                        <li angular-ripple> <a ui-sref="main.devices"><i class="sl-sl-devices"></i> Your devices</a></li>
+                        <li angular-ripple> <a ui-sref="main.gateways"><i class="sl-sl-gateway"></i> Your gateways</a></li>
+                    </ul>
+                </section>
+                <section>
+                    <h3 class="top-bar-dropown-caption">Account <span class="user-menu-username">({{vm.user}})</span></h3>
+                    <ul>
+                        <li angular-ripple><a ui-sref="main.accountSettings">Account settings</a> </li>
+                        <li angular-ripple><a ui-sref="main.authorizedClients">Authorized clients</a> </li>
+                        <li angular-ripple permission="usermenu-godsection"><a ui-sref="main.admin">God mode</a></li>
+                    </ul>
+                    <ul class="bg-light">
+                        <li angular-ripple ng-if="$root.brand.name !== 'Pleq'"> <a ui-sref="termsOfUse" target="_blank">Terms of Use</a></li>
+                        <li angular-ripple> <a href="http://docs.smartliving.io" target="_blank">Documentation</a></li>
+                        <li angular-ripple><a href="" ng-click="vm.logout()" test-id="logoutButton">Sign out</a></li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </state-control>
+</div>

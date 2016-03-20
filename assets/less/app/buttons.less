@@ -1,0 +1,314 @@
+.btn {
+    border: none;
+    &:focus {
+        outline: none;
+    }
+}
+.btn-group.open .dropdown-toggle {
+    background-color: @menu-background;
+}
+
+.button-group {
+  display: inline-flex;
+  margin: auto;
+  .clearfix;
+
+  a {
+    float: left;
+    background-color: @white;
+    border: solid 1px @gray;
+    border-left-color: transparent;
+    color: @text-color;
+    padding: 10px 45px;
+    width: auto;
+    cursor: pointer;
+    position: relative;
+    .transition(0.2s);
+    text-align: center;
+//    height: 50px;
+    line-height: 1.7em;
+    &:hover{
+      background: darken(@white, 5)
+    }
+    &:first-child {
+      border-left: solid 1px @gray;
+      border-radius: 3px 0 0 3px;
+    }
+
+    &:last-child {
+      border-radius: 0 3px 3px 0;
+    }
+
+    span{
+      display: inline-block;
+      vertical-align: text-top;
+      font-size: 15px;
+      line-height: 20px;
+    }
+    i.active-btn{
+      font-size: 12px;
+      color: #666;
+      width: 30px;
+      height: 30;
+      line-height: 30px;
+      position: absolute;
+      right: 0;
+      top: 0;
+      text-align: center;
+      pointer-events: auto;
+    }
+    i.btn-icon{
+      display: block;
+      text-align: center;
+      font-size: 59px;
+      margin: auto;
+      opacity: 0.4;
+
+    }
+  }
+
+  a.button-group-selected {
+    color: @main;
+    border: solid 1px @main;
+    i {
+      color: @main;
+      opacity: 1;
+    }
+  }
+
+  &.add-control-btn-group {
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+    a {
+      float: none;
+      display: table-cell;
+      width: 100%;
+      border-radius: 0;
+      padding: 10px;
+      &:first-child {
+        border-radius: 5px 0 0 5px;
+      }
+      &:last-child {
+        border-radius: 0 5px 5px 0;
+      }
+      small{
+        line-height: 0.5em;
+      }
+    }
+  }
+  &.large {
+    a {padding: 18px 45px;}
+  }
+
+}
+
+.button-group.table-group{
+  display: table;
+  width: 100%;
+  a{
+    display: table-cell;
+    float: none;
+    padding: 10px 0;
+  }
+}
+
+
+.dark-button {
+    display: inline-block;
+    line-height: @dark-button-height;
+    min-width: @dark-button-width;
+    height: @dark-button-height;
+    background: @dark-button-background;
+    border-radius: @input-border-radius;
+    color: @dark-button-color;
+    padding: 0 25px;
+    border: none;
+    .transition(0.2s);
+    .btn;
+    &:hover {
+        background: darken(@dark-button-background, 5);
+    }
+}
+
+.user-area button {
+    background-color: #ffffff;
+    border: none;
+    height: @top-navbar-height;
+    &:active {
+        background-color: @light-gray;
+        border: none;
+    }
+    &:hover {
+        background-color: @light-gray;
+        border: none;
+    }
+}
+
+.main-button {
+    border-radius: @page-button-border-radius;
+    background: @main;
+    color: @white !important;
+    border: none;
+    padding: 15px 24px;
+    font-size: 16px;
+    display: inline-block;
+    cursor: pointer;
+    line-height: 1em ;
+    .transition(0.2s);
+    width: auto;
+    &:hover{
+      background: darken(@main, 10);
+    }
+
+  i, span { vertical-align: middle}
+  i{ margin: 0 10px }
+
+  &.small-btn{
+    padding: 10px 15px;
+    font-size: 13px;
+  }
+  &.large-btn{
+    padding: 25px 30px;
+    font-size: 18px;
+    min-width: 200px;
+  }
+  &.block-btn{
+    display: block;
+    text-align: center;
+  }
+
+}
+
+.icon-btn {
+  position: relative;
+  padding: 15px 24px 15px 70px;
+  i {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    font-size: 25px;
+    line-height: 46px;
+    padding: 0 13px;
+    margin: 0;
+    background: rgba(0,0,0,0.07);
+  }
+}
+
+.btn-spacing {
+  margin: 15px;
+}
+
+.transparent-btn {
+  background: rgba(0,0,0,0.1) !important;
+  color: @white !important;
+  &:hover {background: rgba(0,0,0,0.2) !important;}
+}
+
+.white-btn {
+  background: @white !important;
+  color: @text-color !important;
+  &:hover {background:darken(@light-gray, 3) !important;}
+}
+
+.light-btn {
+  background: @light-gray !important;
+  color: @text-color !important;
+  &:hover { background: @light-light-gray !important;}
+}
+
+.green-btn {
+  background: @green !important;
+  color: @white !important;
+  &:hover{
+    background: darken(@green, 10) !important;
+  }
+}
+
+.red-btn {
+  background: @red !important;
+  color: @white !important;
+  &:hover{
+    background: darken(@red, 10) !important;
+  }
+}
+
+.info-btn {
+  cursor: help !important;
+}
+
+.disabled-btn{
+  background: @light-gray !important;
+  color: lighten(@text-color, 20) !important;
+  cursor: default !important;
+  pointer-events: none !important;
+
+  &:hover {
+    background: @light-gray;
+    color: lighten(@text-color, 20);
+  }
+}
+
+.button-red {
+    background-color: @red !important;
+    color: @white !important;
+    border-bottom: 1px solid @light-gray !important;
+    .transition(0.2s);
+}
+
+.main-button.linear-white {
+  background: none;
+  color: @white;
+  border: 2px solid @white;
+  padding: 15px 25px;
+  &:hover {
+    background: rgba(0,0,0,0.1);
+  }
+}
+
+.main-button.linear-white.icon-btn {
+  padding: 15px 24px 15px 55px;
+  i { background: none}
+  &:hover {
+    background: rgba(0,0,0,0.1);
+  }
+}
+
+.link {
+  color: @main;
+  cursor: pointer;
+  &:before, i{
+    font-size: 12px;
+    margin-right: 10px;
+    vertical-align: middle;
+  }
+
+  &:before{
+    font-family: 'smartliving';
+  }
+}
+
+.fixed-back {
+  position: absolute;
+  width: 55px;
+  height: 55px;
+  line-height: 55px;
+  text-align: center;
+  left: 20px;
+  bottom: 20px;
+  background: @light-gray;
+  border-radius: 100%;
+  color: lighten(@text-color, 20);
+  font-size: 22px;
+  .basicTransition;
+  i {
+    vertical-align: middle;
+  }
+
+  &:hover {
+    background: darken(@light-gray, 5);
+  }
+}
+
+

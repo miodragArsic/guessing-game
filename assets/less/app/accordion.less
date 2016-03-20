@@ -1,0 +1,62 @@
+.accordion {
+  [state-control-type="container"] {
+    display: none;
+  }
+  [state-control-type="container"].active {
+    display: block;
+  }
+
+  [state-control-type="trigger"]{
+  }
+}
+
+.step-accordion{
+  [state-control-type="container"] {
+    display: block;
+  }
+  [state-control-type="container"].active {
+    display: none;
+  }
+  [state-control-type="trigger"]{
+    opacity: 1;
+    &:after{
+      content:'\e64c';
+    }
+  }
+  [state-control-type="trigger"].active{
+    opacity: 0.8;
+    &:after{
+      content:'\e64b';
+      opacity: 0.8;
+    }
+  }
+
+  [state-control-type="trigger"]{
+    .ui-el-caption;
+    margin: @content-padding/4 0;
+    cursor: pointer;
+    position: relative;
+    line-height: @top-navbar-height/2;
+    span{
+      font-size: 150%;
+      margin-right: 5px;
+    }
+    .link{
+      margin-left: 5px;
+      text-transform: none;
+      font-weight: 500;
+    }
+    &:hover{
+      opacity: 1;
+    }
+    &:after{
+      font-family: 'smartliving';
+      position: absolute;
+      right: 0;
+      top: 0;
+      font-size: 13px;
+    }
+  }
+
+
+}

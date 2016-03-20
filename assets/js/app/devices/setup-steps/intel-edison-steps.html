@@ -1,0 +1,47 @@
+<section class="details-part">
+    <state-control class="accordion step-accordion" modifier-class="active">
+        <h2 state-control-type="trigger"><span>1.</span>  Prepare hardware & software <a class="link" href="http://docs.smartliving.io/kits/intel-edison/#installation" target="_blank">Learn more</a></h2>
+        <article state-control-type="container">
+            <ol>
+                <li>Place the Grove shield on top of the Intel Edison</li>
+                <li>Attach Rotary knob to <b>A0</b> pin on the shield</li>
+                <li>Attach LED to <b>D4</b> pin on the shield</li>
+                <li>Set up Intel Edison</li>
+            </ol>
+        </article>
+    </state-control>
+</section>
+
+<section class="details-part">
+    <state-control class="accordion step-accordion" modifier-class="active">
+        <h2 state-control-type="trigger"><span>2.</span> Install libraries <a class="link" href="http://docs.smartliving.io/kits/intel-edison/#install-allthingstalk-library" target="_blank">Learn more</a></h2>
+        <article state-control-type="container">
+            <ol>
+                <li>Download libraries (Node.js client, Node.js client examples)</li>
+            </ol>
+        </article>
+    </state-control>
+    <article class="spacing-y">
+        <a class="main-button" href="https://github.com/allthingstalk/nodejs-client/archive/master.zip">Download library</a>
+        <a class="main-button" href="https://github.com/allthingstalk/nodejs-client-examples/archive/master.zip">Download examples</a>
+    </article>
+</section>
+
+<section class="details-part">
+    <state-control class="accordion step-accordion" modifier-class="active">
+        <h2 state-control-type="trigger"><span>3.</span> run First application script</h2>
+        <article state-control-type="container">
+            <p>This is your <b>first_app</b>. To run your application follow:</p>
+            <ol>
+                <li>Download the application script</li>
+                <li>Paste the application script into <pre>nodejs-client-examples-master\intel\First_app</pre> project folder</li>
+                <li>Build and Run the application script from XDK</li>
+            </ol>
+            <p>Your device will be activated as soon as the first data arrives in the cloud.</p>
+        </article>
+    </state-control>
+    <article class="spacing-y">
+        <ui-codemirror ui-codemirror-opts="vm.model.editorOptions" ng-model="vm.model.editorModel" ui-refresh="vm.model.editorRefresh"></ui-codemirror>
+        <a class="main-button codemirror-submit" ng-click="vm.model.downloadScript()"href="#">Download the application script</a>
+    </article>
+</section>

@@ -1,0 +1,198 @@
+
+
+.search {
+  position: relative;
+  input{
+    border-radius: 0;
+    border: none;
+    height: 40px;
+    padding: 0;
+    border-bottom: solid 1px lighten(@text-color,40);
+    font-size: 14px;
+    min-width: 250px;
+  }
+  input:focus {
+    background: none;
+    box-shadow: inset 0 -3px 0 0 rgba(0,0,0,0.07);
+
+  }
+  i{
+    position: absolute;
+    right: 0;
+    top: 50%;
+    margin-top: -7px;
+    font-size: 15px;
+  }
+}
+
+.grid-box-menu .search {
+  float: right;
+  input{
+    margin-top: 8px;
+  }
+}
+
+
+
+.table-holder {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  .box-style;
+}
+
+
+.table-holder-inner {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  &::-moz-scrollbar {
+    display: none;
+  }
+  background: linear-gradient(90deg, #fff 100%, rgba(255,255,255,0)) 0 0,linear-gradient(270deg, #fff 100%, rgba(255,255,255,0)) 100% 0,linear-gradient(90deg, #ddd 0%, rgba(255,255,255,0)) 0 0,linear-gradient(270deg, #ddd 0, rgba(255,255,255,0)) 100% 0;
+  background-size: 20px 100%, 20px 100%, 20px 100%, 20px 100%;
+
+//  background: linear-gradient(90deg, #fff 100%, rgba(255,255,255,0)) 0 0,linear-gradient(270deg, #fff 100%, rgba(255,255,255,0)) 100% 0,linear-gradient(90deg, #e3e3e3 95%, rgba(255,255,255,0)) 0 0,linear-gradient(270deg, #e3e3e3 0, rgba(255,255,255,0)) 100% 0;
+//  background-size: 280px 100%, 20px 100%, 280px 100%, 20px 100%;
+
+  background-repeat: no-repeat;
+  background-color: #fff;
+  background-attachment: local,local,scroll,scroll;
+}
+
+
+.gods-table td, .gods-table th {
+    vertical-align: middle !important;
+    text-align: center;
+}
+
+.gods-table {
+//  min-width: calc(~"100% - 260px");
+  min-width: 1200px;
+  width: 100%;
+  border-collapse: collapse;
+//  margin-left: 260px;
+  *{
+    .selection-enabled;
+  }
+
+
+  tr:hover{
+      td {background: #f2f2f2 !important;}
+  }
+  .head th{
+    padding: 20px 20px;
+    background: rgba(0, 0, 0, 0.06);
+  }
+  tr th {
+    font-size: 16px;
+    font-weight: 700;
+    color: darken(@text-color,10);
+    text-align: left;
+    padding: 12px 20px;
+    &:last-child{
+      text-align: right;
+
+    }
+    a {
+      color: darken(@text-color,10);
+    }
+    i {
+      display: inline-block;
+      vertical-align: middle;
+      margin: 0 10px;
+      font-size: 80%;
+      opacity: 0.4;
+      .basicTransition;
+    }
+
+    i.reverse {
+      .rotate(180deg);
+    }
+  }
+  tr td {
+    padding: 12px 20px;
+    font-size: 14px;
+    text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    border-bottom: solid 1px @light-gray;
+    b{
+      font-weight: 900;
+    }
+    p{
+      font-size: 90%;
+      opacity: 0.6;
+      margin: 0;
+    }
+  }
+
+
+  tr td:first-child {
+    border-right: solid 1px @light-gray;
+    width: 260px;
+//    position: absolute;
+//    left: 0;
+//    background: @white;
+//    height: 70px;
+//    z-index: 1;
+//    background: @white;
+  }
+
+  tr th:first-child {
+    border-right: solid 1px @light-gray;
+    width: 260px;
+//    position: absolute;
+//    left: 0;
+//    z-index: 1;
+//    background: #f0f0f0;
+  }
+
+  tr td:last-child {
+    text-align: right;
+    position: relative;
+    z-index: 1;
+    overflow: visible;
+  }
+
+  tr td:first-child, tr th:first-child {
+    padding-left: 30px;
+  }
+  tr td:last-child, tr th:last-child {
+    padding-right: 30px;
+  }
+
+  tr td.action {
+    text-align: right;
+    position: relative;
+    z-index: 1;
+    overflow: visible;
+    height: 70px;
+    width: 50px;
+
+    inline-control {
+      position: absolute;
+      top: 0;
+      right: 0;
+      margin: 10px 30px;
+    }
+  }
+
+  .inline-control-delete {
+    float: right;
+  }
+
+  .deleting td{
+    background: rgba(0,0,0,0.04);
+  }
+  .deleting td:not(.action){
+    color: lighten(@text-color, 30);
+  }
+}
+
+
+
+

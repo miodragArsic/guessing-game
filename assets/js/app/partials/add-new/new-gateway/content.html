@@ -1,0 +1,39 @@
+<i class="sl-close modal-close" state-control-type="close" ng-click="vm.model.stopClaiming(vm.model.steps.enrollInfo)"></i>
+<section class="modal-scroll modal-padding">
+    <article class="add-control-step" ng-show="vm.model.enrollStep == vm.model.steps.enrollInfo" test-id="enrollWindow">
+        <h1 test-id="title">Connect your gateway</h1>
+        <p>Before you continue the enrollment process make sure you've empowered your gateway and connected it to the network.</p>
+        <img src="assets/img/connect-gateway.svg" alt="" />
+        <button class="main-button" ng-click="vm.model.goToStep(vm.model.steps.enterCode)" test-id="continueButton">Continue</button>
+    </article>
+    <article class="add-control-step" ng-show="vm.model.enrollStep == vm.model.steps.enterCode">
+        <h1 test-id="titleClaim">Claim your gateway</h1>
+        <div class="single-input-control">
+            <form>
+                <input type="text" ng-model="vm.model.claimCode" placeholder="Enter claim code" test-id="inputClaimCode" />
+                <button ng-class="{ 'disabled-btn': vm.model.claimCode == null || vm.model.claimCode == '' }" id="submit-name" ng-click="vm.model.startClaiming()" test-id="claimButton">Claim</button>
+            </form>
+        </div>
+    </article>
+    <article class="add-control-step" ng-show="vm.model.enrollStep == vm.model.steps.timer">
+        <h1 test-id="titleStop">Wait for gateway to connect</h1>
+        <div class="enrol-timer">
+            <h2 test-id="seconds">{{ vm.model.countingSeconds }}</h2>
+            <img src="assets/img/oval.svg" alt="" />
+        </div>
+        <button class="main-button" ng-click="vm.model.stopClaiming(vm.model.steps.enterCode)" test-id="stopButton">Stop</button>
+    </article>
+    <article class="add-control-step" ng-show="vm.model.enrollStep == vm.model.steps.error">
+        <h1 test-id="titleError">Something went wrong</h1>
+        <h2>Gateway <span class="text-hl">{{vm.model.claimCode}}</span> not found</h2>
+        <i class="sl-emotion-sad enrolment-icon"></i>
+        <ul>
+            <li>Maybe you mistyped your Claim Code.</li>
+            <li>Maybe you didn't connect your Gateway properly.</li>
+        </ul>
+        <div class="main-button" ng-click="vm.model.goToStep(vm.model.steps.enterCode)" test-id="tryAgainButton">Try again</div>
+    </article>
+</section>
+
+
+

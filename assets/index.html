@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--<meta name="viewport" content="width=device-width, height=device-height,  initial-scale=1, maximum-scale=1, user-scalable=no, user-scalable=0" />-->
+    <meta name="viewport" content="width=600, user-scalable=no, user-scalable=0"  />
+    <title ng-bind="$root.brand.name"></title>
+    <base href="/" />
+    <link href='https://fonts.googleapis.com/css?family=Lato:100,150,300,400,700,900&subset=all' rel='stylesheet' type='text/css'>
+    <link href="assets/css/styles.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/main.css" rel="stylesheet" type="text/css">
+    <link rel="shortcut icon" href="assets/img/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{$root.brand.favicon}}">
+</head>
+
+<body ng-controller="MainPageController as vm" ng-class="(vm.groundModel.ground.visibility == 'personal') ? 'ground-personal' : vm.groundModel.ground.color">
+    <section ui-view class="main-page"></section>
+    <notify-control></notify-control>
+
+    <script type="text/javascript" src="assets/js/vendor.js?rev=@@hash"></script>
+    <script type="text/javascript" src="assets/js/app.js?rev=@@hash"></script>
+    <script type="text/javascript" src="assets/js/templates.js?rev=@@hash"></script>
+</body>
+
+</html>
